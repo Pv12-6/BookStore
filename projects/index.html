@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheBookstore</title>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/product.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <style>
+    .search-box-adv {
+    display: flex;
+    align-items: center;
+    border: 2px solid #3498db; /* màu viền */
+    border-radius: 8px;          /* bo góc */
+    padding: 5px 10px;
+    max-width: 400px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Input */
+#search-input-adv {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Nút tìm kiếm */
+#search-btn-adv {
+    background-color: #14bd11;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#search-btn-adv:hover {
+    background-color: #104e09;
+}
+  </style>
+</head>
+<body>
+        <!-- HEADER KHI CHƯA LOGIN -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="../images/logo.png" alt="Bookstore Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="newbook.html">Sách mới</a>
+            <a href="bestsaler.html">Bán chạy</a>
+            <a href="voucher.html">Khuyến mãi</a>
+            <a href="aboutus.html">Về chúng tôi</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <!-- icon tìm kiếm -->
+            <div class="search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="search-input">
+  <button id="search-btn"><i class="fa fa-search"></i></button>
+</div>
+
+<!-- Nơi hiển thị kết quả -->
+<div id="search-results"></div>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <span>|</span>
+            <a href="register.html" class="btn-register">Đăng ký</a>
+        </div>
+    </header>
+    <!-- HEADER KHI CHƯA LOGIN END -->
+  <!-- Header mini (ẩn lúc đầu) -->
+  <div class="mini-header">
+    <a href="index.html">Trang chủ</a>
+    <a href="newbook.html">Sách mới</a>
+    <a href="bestsaler.html">Bán chạy</a>
+    <a href="voucher.html">Khuyến mãi</a>
+    <a href="aboutus.html">Về chúng tôi</a>
+    <a href="contact.html">Liên hệ</a>
+    <!-- icon tìm kiếm -->
+            <div class="search-box mini-search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="mini-search-input">
+  <button id="mini-search-btn"><i class="fa fa-search"></i></button>
+</div>
+
+<!-- Nơi hiển thị kết quả -->
+<div id="search-results"></div>
+    <a href="#"><i class="fas fa-user"></i></a>
+
+    </div>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--Main content-->
+    <main> 
+        <div class="slider">
+          <div class="list">
+            <div class="item">
+              <img src="../images/slide1.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/slide2.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/slide3.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/slide4.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/slide5.png" alt="">
+            </div>
+          </div>
+          <div class="buttons">
+            <button id="prev"><</button>
+            <button id="next">></button>
+          </div>
+          <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <section class="book-section" id="theloai">
+          <!-- Input khoảng giá riêng -->
+<input type="number" id="min-price" placeholder="Giá từ..." min="0">
+<input type="number" id="max-price" placeholder="Đến..." min="0">
+
+<!-- Chọn phân loại riêng -->
+<select id="search-category">
+  <option value="all">Tất cả thể loại</option>
+  <option value="kinhte">Kinh tế</option>
+  <option value="vanhoc">Văn học</option>
+  <option value="thieunhi">Thiếu nhi</option>
+  <option value="tieuthuyet">Tiểu thuyết</option>
+  <option value="khoahoc">Khoa học</option>
+  <option value="nghethuat">Nghệ thuật</option>
+</select>
+
+<button id="search-btn-adv">Tìm kiếm</button>
+
+<div id="search-results"></div>
+  <div class="category-buttons">
+    <button class="active" onclick="filterCategory('all')">Tất cả sách</button>
+    <button onclick="filterCategory('kinhte')">Kinh tế</button>
+    <button onclick="filterCategory('vanhoc')">Văn học</button>
+    <button onclick="filterCategory('thieunhi')">Thiếu nhi</button>
+    <button onclick="filterCategory('tieuthuyet')">Tiểu thuyết</button>
+    <button onclick="filterCategory('khoahoc')">Khoa học</button>
+    <button onclick="filterCategory('nghethuat')">Nghệ thuật</button>
+  </div>
+  <div class="book-list" id="theloai-list"></div>
+    <!-- PHÂN TRANG -->
+  <div class="pagination" id="pagination"></div>
+</section>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>The Bookstore</h3>
+          <p>Đem tri thức đến gần bạn hơn mỗi ngày.</p>
+          <p>© 2025 TheBookstore</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên hệ</h3>
+          <p>
+            Email:
+            <a href="mailto:sbookstore@gmail.com">sbookstore@gmail.com</a>
+          </p>
+          <p>Hotline: 0869 953 312</p>
+          <p>Địa chỉ: 123 Đường Sách, Quận 1, TP.HCM</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Bán chạy</a></li>
+            <li><a href="#">Sách mới</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Về chúng tôi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Kết nối</h3>
+          <div class="social-icons">
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Tikok</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
