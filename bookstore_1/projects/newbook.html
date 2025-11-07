@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheBookstore</title>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/product.css">
+    <script src="../js/main.js" defer></script>
+  <script src="../js/header.js" defer></script>
+
+</head>
+<body>
+          <!-- HEADER KHI CHƯA LOGIN -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="../images/logo.png" alt="Bookstore Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="newbook.html">Sách mới</a>
+            <a href="bestsaler.html">Bán chạy</a>
+            <a href="voucher.html">Khuyến mãi</a>
+            <a href="aboutus.html">Về chúng tôi</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <!-- icon tìm kiếm -->
+            <div class="search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="search-input">
+  <button id="search-btn"><i class="fa fa-search"></i></button>
+</div>
+
+<!-- Nơi hiển thị kết quả -->
+<div id="search-results"></div>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <span>|</span>
+            <a href="register.html" class="btn-register">Đăng ký</a>
+        </div>
+    </header>
+    <!-- HEADER KHI CHƯA LOGIN END -->
+  <!-- Header mini (ẩn lúc đầu) -->
+  <div class="mini-header">
+    <a href="index.html">Trang chủ</a>
+    <a href="newbook.html">Sách mới</a>
+    <a href="bestsaler.html">Bán chạy</a>
+    <a href="voucher.html">Khuyến mãi</a>
+    <a href="aboutus.html">Về chúng tôi</a>
+    <a href="contact.html">Liên hệ</a>
+    <!-- icon tìm kiếm -->
+            <div class="search-box mini-search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="mini-search-input">
+  <button id="mini-search-btn"><i class="fa fa-search"></i></button>
+</div>
+
+<!-- Nơi hiển thị kết quả -->
+<div id="search-results"></div>
+    <a href="#"><i class="fas fa-user"></i></a>
+
+    </div>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+   <main>
+  <section class="book-section">
+  <h2>Sách Mới</h2>
+  <div id="book-list" class="book-list"></div>
+  <div id="pagination" class="pagination"></div>
+</section>
+</main>
+     <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>The Bookstore</h3>
+          <p>Đem tri thức đến gần bạn hơn mỗi ngày.</p>
+          <p>© 2025 TheBookstore</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên hệ</h3>
+          <p>
+            Email:
+            <a href="mailto:sbookstore@gmail.com">sbookstore@gmail.com</a>
+          </p>
+          <p>Hotline: 0869 953 312</p>
+          <p>Địa chỉ: 123 Đường Sách, Quận 1, TP.HCM</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="bestsaler.html">Bán chạy</a></li>
+            <li><a href="newbook.html">Sách mới</a></li>
+            <li><a href="voucher.html">Khuyến mãi</a></li>
+            <li><a href="aboutus.html">Về chúng tôi</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Kết nối</h3>
+          <div class="social-icons">
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Tikok</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+      <script>
+// ===== DỮ LIỆU SÁCH MỚI =====
+const SachMoi = [
+  {
+    title: "Tuổi Trẻ Đáng Giá Bao Nhiêu",
+    author: "Rosie Nguyễn",
+    category: "Kỹ năng sống",
+    price: 88000,
+    sale: 25,
+    img: "../images/book7.jpg",
+    desc: "Truyền cảm hứng sống hết mình cho tuổi trẻ.",
+  },
+  {
+    title: "7 Thói Quen Hiệu Quả",
+    author: "Stephen Covey",
+    category: "Phát triển bản thân",
+    price: 130000,
+    sale: 10,
+    img: "../images/book8.jpg",
+    desc: "Những thói quen giúp bạn thành công và hạnh phúc.",
+  },
+  {
+    title: "Dám Bị Ghét",
+    author: "Ichiro Kishimi",
+    category: "Tâm lý học",
+    price: 115000,
+    sale: 20,
+    img: "../images/book9.jpg",
+    desc: "Triết lý sống tự do và hạnh phúc theo tư tưởng Adler.",
+  },
+  {
+    title: "Tư Duy Nhanh Và Chậm",
+    author: "Daniel Kahneman",
+    category: "Kinh tế học hành vi",
+    price: 210000,
+    sale: 15,
+    img: "../images/book10.jpg",
+    desc: "Khám phá hai hệ thống tư duy và cách con người ra quyết định.",
+  },
+  {
+    title: "Nhà Giả Kim",
+    author: "Paulo Coelho",
+    category: "Tiểu thuyết",
+    price: 120000,
+    sale: 30,
+    img: "../images/book2.jpg",
+    desc: "Câu chuyện truyền cảm hứng về hành trình theo đuổi ước mơ.",
+  },
+  {
+    title: "Đắc Nhân Tâm",
+    author: "Dale Carnegie",
+    category: "Kỹ năng sống",
+    price: 75000,
+    sale: 10,
+    img: "../images/book1.jpg",
+    desc: "Cuốn sách giúp bạn hiểu và giao tiếp hiệu quả hơn trong cuộc sống.",
+  },
+  {
+    title: "Tâm Lý Học Tội Phạm",
+    author: "Stanton E. Samenow",
+    category: "Tâm lý học",
+    price: 120000,
+    sale: 15,
+    img: "../images/book4.jpg",
+    desc: "Khám phá tư duy của tội phạm và hành vi con người.",
+  },
+  {
+    title: "Người Dám Cho Đi",
+    author: "Bob Burg",
+    category: "Kinh doanh",
+    price: 95000,
+    sale: 0,
+    img: "../images/book5.jpg",
+    desc: "Bài học kinh doanh và cuộc sống từ lòng tốt.",
+  },
+  {
+    title: "Khéo Ăn Nói Sẽ Có Được Thiên Hạ",
+    author: "Trác Nhã",
+    category: "Kỹ năng sống",
+    price: 89000,
+    sale: 15,
+    img: "../images/book11.jpg",
+    desc: "Cách giao tiếp khôn ngoan giúp bạn thành công trong xã hội.",
+  },
+  {
+    title: "Think and Grow Rich",
+    author: "Napoleon Hill",
+    category: "Kinh doanh",
+    price: 115000,
+    sale: 10,
+    img: "../images/book12.jpg",
+    desc: "Bí quyết thành công và làm giàu mọi thời đại.",
+  },
+  {
+    title: "Không Gia Đình",
+    author: "Hector Malot",
+    category: "Văn học thiếu nhi",
+    price: 92000,
+    sale: 5,
+    img: "../images/book13.jpg",
+    desc: "Câu chuyện cảm động về hành trình tìm kiếm gia đình của Rémi.",
+  },
+  {
+    title: "Cà Phê Cùng Tony",
+    author: "Tony Buổi Sáng",
+    category: "Truyền cảm hứng",
+    price: 95000,
+    sale: 10,
+    img: "../images/book14.jpg",
+    desc: "Những bài viết đầy cảm hứng về khởi nghiệp và trưởng thành.",
+  },
+  {
+    title: "Khi Hơi Thở Hóa Thinh Không",
+    author: "Paul Kalanithi",
+    category: "Tự truyện",
+    price: 135000,
+    sale: 20,
+    img: "../images/book15.jpg",
+    desc: "Câu chuyện cảm động về bác sĩ đối mặt với cái chết.",
+  },
+  {
+    title: "Bí Mật Của May Mắn",
+    author: "Alex Rovira",
+    category: "Kỹ năng sống",
+    price: 98000,
+    sale: 10,
+    img: "../images/book16.jpg",
+    desc: "Bài học nhẹ nhàng về may mắn và nỗ lực trong cuộc sống.",
+  },
+  {
+    title: "Tôi Tài Giỏi, Bạn Cũng Thế!",
+    author: "Adam Khoo",
+    category: "Phát triển bản thân",
+    price: 99000,
+    sale: 15,
+    img: "../images/book17.jpg",
+    desc: "Khám phá tiềm năng bản thân và phương pháp học hiệu quả.",
+  },
+  {
+    title: "Sống Chậm Lại, Rồi Mọi Chuyện Sẽ Ổn",
+    author: "Haemin Sunim",
+    category: "Tâm lý học",
+    price: 95000,
+    sale: 10,
+    img: "../images/book18.jpg",
+    desc: "Những lời khuyên an nhiên giúp vượt qua căng thẳng và lo âu.",
+  },
+  {
+    title: "Bố Già",
+    author: "Mario Puzo",
+    category: "Tiểu thuyết",
+    price: 120000,
+    sale: 15,
+    img: "../images/book19.jpg",
+    desc: "Tác phẩm kinh điển về quyền lực, danh vọng và tình thân.",
+  },
+  {
+    title: "Câu Chuyện Nghề Y",
+    author: "Nguyễn Ngọc Ký",
+    category: "Tự truyện",
+    price: 89000,
+    sale: 5,
+    img: "../images/book20.jpg",
+    desc: "Những mẩu chuyện giản dị, sâu sắc về ngành y và lòng nhân ái.",
+  },
+  {
+    title: "Thay Đổi Cuộc Sống Với Nhân Số Học",
+    author: "David A. Phillips",
+    category: "Khoa học huyền bí",
+    price: 118000,
+    sale: 10,
+    img: "../images/book21.jpg",
+    desc: "Giải mã con số cuộc đời để hiểu rõ bản thân và định hướng tương lai.",
+  },
+  {
+    title: "Không Phải Sói Nhưng Cũng Đừng Là Cừu",
+    author: "Mike Wells",
+    category: "Kỹ năng sống",
+    price: 89000,
+    sale: 20,
+    img: "../images/book22.jpg",
+    desc: "Tư duy thực tế giúp bạn mạnh mẽ hơn trong xã hội.",
+  },
+  {
+    title: "Đừng Lựa Chọn An Nhàn Khi Còn Trẻ",
+    author: "Cảnh Thiên",
+    category: "Truyền cảm hứng",
+    price: 97000,
+    sale: 10,
+    img: "../images/book23.jpg",
+    desc: "Lời nhắc thức tỉnh giới trẻ sống nỗ lực và bứt phá.",
+  },
+  {
+    title: "Một Lít Nước Mắt",
+    author: "Aya Kito",
+    category: "Tự truyện",
+    price: 98000,
+    sale: 15,
+    img: "../images/book24.jpg",
+    desc: "Nhật ký xúc động của cô gái mắc bệnh hiểm nghèo.",
+  },
+  {
+    title: "Đọc Vị Bất Kỳ Ai",
+    author: "David J. Lieberman",
+    category: "Tâm lý học",
+    price: 105000,
+    sale: 10,
+    img: "../images/book25.jpg",
+    desc: "Kỹ năng đọc vị tâm lý, ngôn ngữ cơ thể và cảm xúc người khác.",
+  },
+  {
+    title: "Không Bao Giờ Là Thất Bại, Tất Cả Là Thử Thách",
+    author: "Chung Ju Yung",
+    category: "Kinh doanh",
+    price: 112000,
+    sale: 20,
+    img: "../images/book26.jpg",
+    desc: "Hành trình vươn lên từ nghèo khó của người sáng lập Hyundai.",
+  }
+];
+
+// ===== HÀM HIỂN THỊ SÁCH =====
+function renderSachMoi(listId, bookData) {
+  const list = document.getElementById(listId);
+  list.innerHTML = "";
+
+  bookData.forEach(book => {
+    const originalPrice = parseInt(String(book.price).replace(/[^\d]/g, ""));
+    const salePercent = Number(book.sale) || 0;
+    const salePrice = salePercent > 0 ? Math.round(originalPrice * (1 - salePercent / 100)) : originalPrice;
+
+    const div = document.createElement("div");
+    div.classList.add("book");
+
+    div.innerHTML = `
+      <div class="book-img-container">
+        <img src="${book.img}" alt="${book.title}">
+        ${salePercent > 0 ? `<div class="sale-tag">-${salePercent}%</div>` : ""}
+      </div>
+      <h4>${book.title}</h4>
+      <p class="author">${book.author}</p>
+      <div class="book-price">
+        ${salePercent > 0
+          ? `<span class="old-price">${originalPrice.toLocaleString()}₫</span>
+             <span class="new-price">${salePrice.toLocaleString()}₫</span>`
+          : `<span class="new-price">${originalPrice.toLocaleString()}₫</span>`}
+      </div>
+      <div class="book-actions">
+        <button class="view"><i class="fa-solid fa-eye"></i> Xem thông tin</button>
+        <button class="add"><i class="fa-solid fa-cart-plus"></i> Thêm</button>
+      </div>
+    `;
+
+    // Sự kiện nút
+    div.querySelector(".view").addEventListener("click", () => {
+      localStorage.setItem("selectedBook", JSON.stringify(book));
+      window.location.href = "book-detail.html";
+    });
+
+     // Thêm giỏ hàng
+    div.querySelector(".add").addEventListener("click", () => {
+      alert(`Bạn cần phải đăng nhập`);
+      window.location.href = "login.html";
+    });
+
+    list.appendChild(div);
+  });
+}
+
+
+// ===== HÀM TÌM KIẾM =====
+function searchSachMoi() {
+  const keyword = document.getElementById("search-input").value.toLowerCase();
+  const filtered = SachMoi.filter(book =>
+    book.title.toLowerCase().includes(keyword) ||
+    book.author.toLowerCase().includes(keyword)
+  );
+  renderSachMoi("book-list", filtered);
+}
+
+// ===== GẮN SỰ KIỆN CHO CẢ 2 THANH TÌM KIẾM =====
+document.addEventListener("DOMContentLoaded", () => {
+  renderSachMoi("book-list", SachMoi);
+
+  // Hàm setup cho từng thanh
+  function setupSearch(inputId, btnId) {
+    const input = document.getElementById(inputId);
+    const btn = document.getElementById(btnId);
+    if (!input || !btn) return;
+
+    function doSearch() {
+      const keyword = input.value.trim().toLowerCase();
+      const filtered = SachMoi.filter(book =>
+        book.title.toLowerCase().includes(keyword) ||
+        book.author.toLowerCase().includes(keyword)
+      );
+      renderSachMoi("book-list", filtered);
+    }
+
+    btn.addEventListener("click", doSearch);
+    input.addEventListener("keyup", doSearch);
+  }
+
+  // Áp dụng cho cả header và mini-header
+  setupSearch("search-input", "search-btn");
+  setupSearch("mini-search-input", "mini-search-btn");
+});
+
+</script>
+
+
+</body>
+</html>
