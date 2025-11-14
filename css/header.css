@@ -70,7 +70,7 @@ section {
 }
 
 .header-log .logo img {
-  height: 100px;
+  height: 80px;
   width: auto;
   vertical-align: middle;
 }
@@ -177,7 +177,7 @@ section {
 }
 
 .header .logo img {
-  height: 100px; /* chiều cao ảnh */
+  height: 80px; /* chiều cao ảnh */
   width: auto; /* tự co chiều rộng theo tỉ lệ */
   vertical-align: middle; /* căn giữa theo chiều dọc */
 }
@@ -578,3 +578,4 @@ section {
         height: 400px;
     }
 }
+
