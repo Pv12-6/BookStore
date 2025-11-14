@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- Font Awesome CDN Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Custom CSS File Link  -->
+     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/header.js"></script>
+    <script src="../js/checkout.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo">
+            <img src="../images/logo.png" alt="Bookstore Logo" width="0px">
+        </a>
+
+
+        <nav class="navbar">
+            <a href="#home">Trang chủ</a>
+            <a href="#newbooks">Sách mới</a>
+            <a href="#bestsaler">Bán chạy</a>
+            <a href="#voucher">Khuyến mãi</a>
+            <a href="#aboutus">About us</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+
+
+        <div class="user-actions">
+            <!-- icon tìm kiếm -->
+            <a href="search.html" class="icon-btn" title="Tìm kiếm sách">
+                <i class="fas fa-search"></i>
+            </a>
+
+            <!-- dropdown wrapper -->
+            <div class="dropdown">
+                <div class="user-info" id="userToggle">
+                    <img src="images/avatar.png" alt="User Avatar" class="avatar">
+                    <span class="username">Karra</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+
+                <ul class="user-menu" id="userMenu">
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ sách</a></li>
+                    <li><a href="orders.html"><i class="fas fa-history"></i> Lịch sử mua sách</a></li>
+                    <li><a href="account.html"><i class="fas fa-user"></i> Thông tin tài khoản</a></li>
+                    <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </header>
+    <!-- HEADER END -->
+
+    <section class="checkout">
+        <h1 class="checkout-title">Thanh toán</h1>
+
+        <div class="checkout-container">
+
+            <!-- Danh sách sản phẩm -->
+            <div class="order-summary">
+                <h2>Danh sách sản phẩm</h2>
+                <table class="checkout-table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="product-info">
+                                <img src="images/book1.jpg" alt="Sách 1">
+                                <span>Sách 1 - Hành trình tri thức</span>
+                            </td>
+                            <td>120.000đ</td>
+                            <td>1</td>
+                            <td>120.000đ</td>
+                        </tr>
+                        <tr>
+                            <td class="product-info">
+                                <img src="images/book2.jpg" alt="Sách 2">
+                                <span>Sách 2 - Khoa học diệu kỳ</span>
+                            </td>
+                            <td>95.000đ</td>
+                            <td>2</td>
+                            <td>190.000đ</td>
+                        </tr>
+                        <tr>
+                            <td class="product-info">
+                                <img src="images/book3.jpg" alt="Sách 3">
+                                <span>Sách 3 - Nghệ thuật sống</span>
+                            </td>
+                            <td>150.000đ</td>
+                            <td>1</td>
+                            <td>150.000đ</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="total">
+                    <p><strong>Tổng cộng:</strong> 460.000đ</p>
+                </div>
+            </div>
+                       
+            <!-- Cột phải: Thông tin giao hàng + thanh toán -->
+            <div class="shipping-payment-column">
+                <div class="shipping-info section-block">
+                    <h2>Thông tin giao hàng</h2>
+                    <form>
+                        <label>Họ và tên</label>
+                        <input type="text" placeholder="Nhập họ tên">
+
+                        <label>Địa chỉ</label>
+                        <input type="text" placeholder="Nhập địa chỉ giao hàng">
+
+                        <label>Số điện thoại</label>
+                        <input type="text" placeholder="Nhập số điện thoại">
+
+                        <label>Email (nếu có)</label>
+                        <input type="email" placeholder="Nhập email">
+                    </form>
+                </div>
+                <div class="payment-method section-block">
+                    <h2>Hình thức thanh toán</h2>
+                    <form>
+                        <div class="payment-methods">
+                            <label><input type="radio" name="payment" checked> Thanh toán khi nhận hàng (COD)</label>
+                            <label><input type="radio" name="payment"> Chuyển khoản ngân hàng</label>
+                            <label><input type="radio" name="payment"> Thanh toán qua ví điện tử</label>
+                        </div>
+
+                        <button type="submit" class="btn">Xác nhận thanh toán</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

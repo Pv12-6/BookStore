@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Lịch sử mua hàng – Không dùng JS (Chuẩn A)</title>
+
+<style>
+body {
+  font-family: 'Quicksand', sans-serif;
+  padding: 20px;
+  background: #f2f2f7;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+/* MENU */
+.category {
+  text-align: center;
+  margin: 25px 0;
+}
+.category a {
+  padding: 10px 20px;
+  background: #e4e6eb;
+  border-radius: 25px;
+  margin: 5px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 600;
+  display: inline-block;
+  transition: 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.category a:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+}
+.category a.active-tab {
+  background: #007bff;
+  color: white;
+}
+
+/* PAGE LOGIC */
+.page {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+/* MẶC ĐỊNH HIỂN THỊ #all */
+#all {
+  display: block;
+}
+
+/* Khi có target → ẩn #all */
+:target ~ #all {
+  display: none;
+}
+
+/* Hiện đúng page đang chọn */
+#processing:target,
+#shipping:target,
+#completed:target,
+#cancelled:target {
+  display: block;
+}
+
+/* HIGHLIGHT TAB ĐƯỢC CHỌN */
+/* Tất cả (mặc định khi không chọn gì) */
+body:not(:target) .category a[href="#all"] {
+  background: #007bff;
+  color: white;
+}
+
+#all:target ~ .category a[href="#all"] { background:#007bff; color:white; }
+#processing:target ~ .category a[href="#processing"] { background:#007bff; color:white; }
+#shipping:target ~ .category a[href="#shipping"] { background:#007bff; color:white; }
+#completed:target ~ .category a[href="#completed"] { background:#007bff; color:white; }
+#cancelled:target ~ .category a[href="#cancelled"] { background:#007bff; color:white; }
+
+/* ORDER CARD */
+.order {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.order a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: #3b372f;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.order a:hover { background:black; }
+
+/* CHI TIẾT ĐƠN */
+.order-details {
+  display:none;
+  margin-top: 12px;
+  padding: 12px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+:target.order-details { display:block; }
+
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+</style>
+</head>
+<body>
+<h1>Lịch sử mua hàng</h1>
+
+<!-- PAGE SECTIONS (phải đặt trước menu) -->
+<div id="processing" class="page">
+  <h2>Đơn đang xử lý</h2>
+  <p>Không có đơn.</p>
+</div>
+
+<div id="shipping" class="page">
+  <h2>Đơn đang giao</h2>
+  <div class="order">
+    <p><strong>Đơn #B67890</strong> — Đang giao</p>
+    <a href="#ship1">Xem chi tiết</a>
+    <div id="ship1" class="order-details">• Doraemon Tập 1 - 160.000đ</div>
+  </div>
+</div>
+
+<div id="completed" class="page">
+  <h2>Đơn đã giao</h2>
+  <div class="order">
+    <p><strong>Đơn #A12345</strong> — Đã giao</p>
+    <a href="#comp1">Xem chi tiết</a>
+    <div id="comp1" class="order-details">• Sách 1 - 120.000đ<br>• Sách 2 - 130.000đ</div>
+  </div>
+</div>
+
+<div id="cancelled" class="page">
+  <h2>Đơn đã hủy</h2>
+  <div class="order">
+    <p><strong>Đơn #C24680</strong> — Đã hủy</p>
+    <a href="#can1">Xem chi tiết</a>
+    <div id="can1" class="order-details">• Harry Potter - 150.000đ</div>
+  </div>
+</div>
+
+<div id="all" class="page">
+  <h2>Tất cả đơn hàng</h2>
+
+  <div class="order">
+    <p><strong>Đơn #A12345</strong> — Đã giao</p>
+    <a href="#cta1">Xem chi tiết</a>
+    <div id="cta1" class="order-details">• Sách 1 – 120.000đ<br>• Sách 2 – 130.000đ</div>
+  </div>
+
+  <div class="order">
+    <p><strong>Đơn #B67890</strong> — Đang giao</p>
+    <a href="#cta2">Xem chi tiết</a>
+    <div id="cta2" class="order-details">• Doraemon Tập 1 – 160.000đ</div>
+  </div>
+
+  <div class="order">
+    <p><strong>Đơn #C24680</strong> — Đã hủy</p>
+    <a href="#cta3">Xem chi tiết</a>
+    <div id="cta3" class="order-details">• Harry Potter – 150.000đ</div>
+  </div>
+</div>
+
+<!-- MENU → đặt SAU page để highlight hoạt động -->
+<div class="category">
+  <a href="#all">Tất cả</a>
+  <a href="#processing">Đang xử lý</a>
+  <a href="#shipping">Đang giao</a>
+  <a href="#completed">Đã giao</a>
+  <a href="#cancelled">Đã hủy</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheBookstore</title>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/product.css">
+    <script src="../js/main.js" defer></script>
+  <script src="../js/header.js" defer></script>
+
+</head>
+<body>
+      <!-- HEADER KHI CHƯA LOGIN -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="../images/logo.png" alt="Bookstore Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="newbook.html">Sách mới</a>
+            <a href="bestsaler.html">Bán chạy</a>
+            <a href="voucher.html">Khuyến mãi</a>
+            <a href="aboutus.html">Về chúng tôi</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+<!-- icon tìm kiếm -->
+            <div class="search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="search-input">
+  <button id="search-btn"><a href="search.html"><i class="fa fa-search"></a></i></button>
+</div>
+
+<!-- Nơi hiển thị kết quả -->
+<div id="search-results"></div>
+        <div class="auth-buttons">       
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <span>|</span>
+            <a href="register.html" class="btn-register">Đăng ký</a>
+        </div>
+    </header>
+    <!-- HEADER KHI CHƯA LOGIN END -->
+  <!-- Header mini (ẩn lúc đầu) -->
+  <div class="mini-header">
+    <a href="index.html">Trang chủ</a>
+    <a href="newbook.html">Sách mới</a>
+    <a href="bestsaler.html">Bán chạy</a>
+    <a href="voucher.html">Khuyến mãi</a>
+    <a href="aboutus.html">Về chúng tôi</a>
+    <a href="contact.html">Liên hệ</a>
+    <!-- icon tìm kiếm -->
+            <div class="search-box mini-search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="mini-search-input">
+  <button id="mini-search-btn"><a href="search.html"><i class="fa fa-search"></a></i></button>
+</div>
+    </div>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <main>
+    <div style="height: 200px;"></div>
+<section class="book-section">
+  <!-- Khu chứa các trang -->
+  <div class="book-pages">
+    <!-- Trang 1 -->
+    <div id="page2" class="page">
+      <div class="book-list">
+        <div class="book-item">
+          <img src="../images/chagiachangheo.jpg" alt="Cha Giàu Cha Nghèo" class="book-img">
+          <div class="book-info">
+            <h2 class="book-title">Cha Giàu Cha Nghèo</h2>
+            <p class="old-price">Giá gốc: <span>150.000₫</span></p>
+            <p class="sale">Giảm: <span>20%</span></p>
+            <p class="new-price">Giá sau giảm: <span>120.000₫</span></p>
+             <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Giải tích.jpg" alt="Giải Tích" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Giải Tích</h2>
+    <p class="old-price">Giá gốc: <span>105.000₫</span></p>
+    <p class="sale">Giảm: <span>20%</span></p>
+    <p class="new-price">Giá sau giảm: <span>84.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Thiên Văn Học Căn Bản.jpg" alt="Thiên Văn Học Căn Bản" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Thiên Văn Học Căn Bản</h2>
+    <p class="old-price">Giá gốc: <span>112.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>100.800₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Khoa Học Mỗi Ngày.jpg" alt="Khoa Học Mỗi Ngày" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Khoa Học Mỗi Ngày</h2>
+    <p class="old-price">Giá gốc: <span>97.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>82.450₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        <div class="book-item">
+          <img src="../images/Tư Duy Nhanh Và Chậm.jpg" alt="Tư Duy Nhanh Và Chậm" class="book-img">
+          <div class="book-info">
+            <h2 class="book-title">Tư Duy Nhanh...</h2>
+            <p class="old-price">Giá gốc: <span>210.000₫</span></p>
+            <p class="sale">Giảm: <span>15%</span></p>
+            <p class="new-price">Giá sau giảm: <span>178.500₫</span></p>
+            <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+          </div>
+        </div>
+        <div class="book-item">
+  <img src="../images/Kinh Tế Học Vui.jpg" alt="Kinh Tế Học Vui" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Kinh Tế Học Vui</h2>
+    <p class="old-price">Giá gốc: <span>175.000₫</span></p>
+    <p class="sale">Giảm: <span>20%</span></p>
+    <p class="new-price">Giá sau giảm: <span>140.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Tư Duy Tích Cực Trong Kinh Doanh.jpg" alt="Tư Duy Tích Cực Trong Kinh Doanh" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Tư Duy Tích Cực...</h2>
+    <p class="old-price">Giá gốc: <span>110.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>93.500₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Tiền Và Lẽ Sống.jpg" alt="Tiền Và Lẽ Sống" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Tiền Và Lẽ Sống</h2>
+    <p class="old-price">Giá gốc: <span>125.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>112.500₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Kinh Tế Học Của Sự Lựa Chọn.jpg" alt="Kinh Tế Học Của Sự Lựa Chọn" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Kinh Tế Học ...</h2>
+    <p class="old-price">Giá gốc: <span>210.000₫</span></p>
+    <p class="sale">Giảm: <span>5%</span></p>
+    <p class="new-price">Giá sau giảm: <span>199.500₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Kinh Doanh Như Một Cuộc Chơi.jpg" alt="Kinh Doanh Như Một Cuộc Chơi" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Kinh Doanh Như...</h2>
+    <p class="old-price">Giá gốc: <span>165.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>140.250₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Làm Chủ Tư Duy, Thay Đổi Vận Mệnh.jpg" alt="Làm Chủ Tư Duy, Thay Đổi Vận Mệnh" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Làm Chủ Tư Duy...</h2>
+    <p class="old-price">Giá gốc: <span>130.000₫</span></p>
+    <p class="sale">Giảm: <span>20%</span></p>
+    <p class="new-price">Giá sau giảm: <span>104.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Chiến Lược Đại Dương Xanh.jpg" alt="Chiến Lược Đại Dương Xanh" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Chiến Lược Đại Dư...</h2>
+    <p class="old-price">Giá gốc: <span>175.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>148.750₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item">
+  <img src="../images/Kinh Tế Học Tình Yêu.jpg" alt="Kinh Tế Học Tình Yêu" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Kinh Tế Học Tình Yêu</h2>
+    <p class="old-price">Giá gốc: <span>120.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>108.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+    
+    <!-- Trang 2 -->
+<div id="page1" class="page">
+  <div class="book-list">
+
+    <div class="book-item">
+      <img src="../images/Nhà Đầu Tư Thông Minh.jpg" alt="Nhà Đầu Tư Thông Minh" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Nhà Đầu Tư Thông...</h2>
+        <p class="old-price">Giá gốc: <span>230.000₫</span></p>
+        <p class="sale">Giảm: <span>10%</span></p>
+        <p class="new-price">Giá sau giảm: <span>207.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Bí Mật Tư Duy Triệu Phú.jpg" alt="Bí Mật Tư Duy Triệu Phú" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Bí Mật Tư Duy Triệu Phú</h2>
+        <p class="old-price">Giá gốc: <span>145.000₫</span></p>
+        <p class="sale">Giảm: <span>20%</span></p>
+        <p class="new-price">Giá sau giảm: <span>116.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/7 Thói Quen Của Người Thành Đạt.jpg" alt="7 Thói Quen Của Người Thành Đạt" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">7 Thói Quen Của ...</h2>
+        <p class="old-price">Giá gốc: <span>190.000₫</span></p>
+        <p class="sale">Giảm: <span>20%</span></p>
+        <p class="new-price">Giá sau giảm: <span>152.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Nhật Ký Anne Frank.jpg" alt="Nhật Ký Anne Frank" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Nhật Ký Anne Frank</h2>
+        <p class="old-price">Giá gốc: <span>120.000₫</span></p>
+        <p class="sale">Giảm: <span>15%</span></p>
+        <p class="new-price">Giá sau giảm: <span>102.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Bánh ngọt và rượu bia.jpg" alt="Bánh ngọt và rượu bia"class="book-img" >
+      <div class="book-info">
+        <h2 class="book-title">Bánh ngọt và rượu bia</h2>
+        <p class="old-price">Giá gốc: <span>350.000₫</span></p>
+        <p class="sale">Giảm: <span>10%</span></p>
+        <p class="new-price">Giá sau giảm: <span>315.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Harypotter và hòn đá phù thủy.jpg" alt="Harry Potter Và Hội Phù Thủy" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Harry Potter Và...</h2>
+        <p class="old-price">Giá gốc: <span>180.000₫</span></p>
+        <p class="sale">Giảm: <span>15%</span></p>
+        <p class="new-price">Giá sau giảm: <span>153.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/trí tuệ do thai.jpg" alt="Tư Duy Nhanh Và Sâu" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Trí tuệ Do thái</h2>
+        <p class="old-price">Giá gốc: <span>160.000₫</span></p>
+        <p class="sale">Giảm: <span>20%</span></p>
+        <p class="new-price">Giá sau giảm: <span>128.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/thỏ  bảy màu.png" alt="Thiếu Nhi Phiêu Lưu Ký" class="book-img" >
+      <div class="book-info">
+        <h2 class="book-title">thỏ bảy màu</h2>
+        <p class="old-price">Giá gốc: <span>90.000₫</span></p>
+        <p class="sale">Giảm: <span>10%</span></p>
+        <p class="new-price">Giá sau giảm: <span>81.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Đánh thức đam mê.jpg" alt="Đam Mê Và Thành Công" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Đánh Thức Đam Mê</h2>
+        <p class="old-price">Giá gốc: <span>200.000₫</span></p>
+        <p class="sale">Giảm: <span>20%</span></p>
+        <p class="new-price">Giá sau giảm: <span>160.000₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Lịch Sử Thế Giới.jpg" alt="Lịch Sử Thế Giới"class="book-img" >
+      <div class="book-info">
+        <h2 class="book-title">Lịch Sử Thế Giới</h2>
+        <p class="old-price">Giá gốc: <span>250.000₫</span></p>
+        <p class="sale">Giảm: <span>15%</span></p>
+        <p class="new-price">Giá sau giảm: <span>212.500₫</span></p>
+        <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Tâm Lý Học Cho Mọi Người.png" alt="Tâm Lý Học Cho Mọi Người" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Tâm Lý Học Cho Ng ...</h2>
+        <p class="old-price">Giá gốc: <span>130.000₫</span></p>
+        <p class="sale">Giảm: <span>10%</span></p>
+        <p class="new-price">Giá sau giảm: <span>117.000₫</span></p>
+         <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="book-item">
+      <img src="../images/Khoa Học Tự Nhiên.jpg" alt="Khoa Học Tự Nhiên" class="book-img">
+      <div class="book-info">
+        <h2 class="book-title">Khoa Học Tự Nhiên</h2>
+        <p class="old-price">Giá gốc: <span>170.000₫</span></p>
+        <p class="sale">Giảm: <span>20%</span></p>
+        <p class="new-price">Giá sau giảm: <span>136.000₫</span></p>
+         <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- Trang 3 -->
+    <div id="page3" class="page">
+      <div class="book-list">
+  <div class="book-item">
+    <img src="../images/Hạt Giống Sáng Tạo.jpg" alt="Hạt Giống Sáng Tạo" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Hạt Giống Sáng Tạo</h2>
+      <p class="old-price">Giá gốc: <span>120.000₫</span></p>
+      <p class="sale">Giảm: <span>15%</span></p>
+      <p class="new-price">Giá sau giảm: <span>102.000₫</span><z/p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Sapiens.png" alt="Sapiens" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Sapiens</h2>
+      <p class="old-price">Giá gốc: <span>200.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>180.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Nhà Giả Kim.jpg" alt="Nhà Giả Kim" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Nhà Giả Kim</h2>
+      <p class="old-price">Giá gốc: <span>95.000₫</span></p>
+      <p class="sale">Giảm: <span>5%</span></p>
+      <p class="new-price">Giá sau giảm: <span>90.250₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Đi Tìm Lẽ Sống.jpg" alt="Đi Tìm Lẽ Sống" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Đi Tìm Lẽ Sống</h2>
+      <p class="old-price">Giá gốc: <span>115.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>103.500₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Tư Duy Như Một Kỹ Sư.jpg" alt="Tư Duy Như Một Kỹ Sư" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Tư Duy Phản Biện</h2>
+      <p class="old-price">Giá gốc: <span>130.000₫</span></p>
+      <p class="sale">Giảm: <span>20%</span></p>
+      <p class="new-price">Giá sau giảm: <span>104.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Thói Quen Tích Cực.jpg" alt="Thói Quen Tích Cực" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Thói Quen Tích Cực</h2>
+      <p class="old-price">Giá gốc: <span>140.000₫</span></p>
+      <p class="sale">Giảm: <span>15%</span></p>
+      <p class="new-price">Giá sau giảm: <span>119.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/7 Thói Quen Của Người Thành Đạt.jpg" alt="7 Thói Quen Của Người Thành Đạt" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">7 Thói Quen Của ...</h2>
+      <p class="old-price">Giá gốc: <span>190.000₫</span></p>
+      <p class="sale">Giảm: <span>20%</span></p>
+      <p class="new-price">Giá sau giảm: <span>152.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Tư Duy Sáng Tạo.jpg" alt="Tư Duy Sáng Tạo" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Tư Duy Sáng Tạo</h2>
+      <p class="old-price">Giá gốc: <span>160.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>144.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Đắc Nhân Tâm.jpg" alt="Đắc Nhân Tâm" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Đắc Nhân Tâm</h2>
+      <p class="old-price">Giá gốc: <span>180.000₫</span></p>
+      <p class="sale">Giảm: <span>15%</span></p>
+      <p class="new-price">Giá sau giảm: <span>153.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Nghĩ Giàu Và Làm Giàu.jpg" alt="Nghĩ Giàu Và Làm Giàu" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Nghĩ Giàu Và Làm Giàu</h2>
+      <p class="old-price">Giá gốc: <span>150.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>135.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Người Giàu Có Nhất Thành Babylon.jpg" alt="Người Giàu Có Nhất Thành Babylon" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Người Giàu Có Nhất...</h2>
+      <p class="old-price">Giá gốc: <span>130.000₫</span></p>
+      <p class="sale">Giảm: <span>15%</span></p>
+      <p class="new-price">Giá sau giảm: <span>110.500₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="book-item">
+    <img src="../images/Khéo Ăn Nói Sẽ Có Được Thiên Hạ.png" alt="Khéo Ăn Nói Sẽ Có Được Thiên Hạ" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Khéo Ăn Nói Sẽ ...</h2>
+      <p class="old-price">Giá gốc: <span>140.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>126.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+ 
+
+</div>  
+</div>
+<!-- Popup chung nằm ngoài book-list -->
+<div id="login-popup" class="popup">
+  <span>Bạn cần đăng nhập!</span>
+  <button class="close-popup">&times;</button>
+</div>
+  <!-- Nút chuyển trang -->
+  <div class="pagination">
+    <a href="#page1">1</a>
+    <a href="#page2">2</a>
+    <a href="#page3">3</a>
+  </div>
+</section>
+    <!-- (các sách còn lại làm tương tự...) -->
+
+</main>
+     <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>The Bookstore</h3>
+          <p>Đem tri thức đến gần bạn hơn mỗi ngày.</p>
+          <p>© 2025 TheBookstore</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên hệ</h3>
+          <p>
+            Email:
+            <a href="mailto:sbookstore@gmail.com">sbookstore@gmail.com</a>
+          </p>
+          <p>Hotline: 0869 953 312</p>
+          <p>Địa chỉ: 123 Đường Sách, Quận 1, TP.HCM</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="bestsaler.html">Bán chạy</a></li>
+            <li><a href="newbook.html">Sách mới</a></li>
+            <li><a href="voucher.html">Khuyến mãi</a></li>
+            <li><a href="aboutus.html">Về chúng tôi</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Kết nối</h3>
+          <div class="social-icons">
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Tikok</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+      <script>
+
+
+// ===== HÀM TÌM KIẾM =====
+function searchSachMoi() {
+  const keyword = document.getElementById("search-input").value.toLowerCase();
+  const filtered = SachMoi.filter(book =>
+    book.title.toLowerCase().includes(keyword) ||
+    book.author.toLowerCase().includes(keyword)
+  );
+  renderSachMoi("book-list", filtered);
+}
+
+// ===== GẮN SỰ KIỆN CHO CẢ 2 THANH TÌM KIẾM =====
+document.addEventListener("DOMContentLoaded", () => {
+  renderSachMoi("book-list", SachMoi);
+
+  // Hàm setup cho từng thanh
+  function setupSearch(inputId, btnId) {
+    const input = document.getElementById(inputId);
+    const btn = document.getElementById(btnId);
+    if (!input || !btn) return;
+
+    function doSearch() {
+      const keyword = input.value.trim().toLowerCase();
+      const filtered = SachMoi.filter(book =>
+        book.title.toLowerCase().includes(keyword) ||
+        book.author.toLowerCase().includes(keyword)
+      );
+      renderSachMoi("book-list", filtered);
+    }
+
+    btn.addEventListener("click", doSearch);
+    input.addEventListener("keyup", doSearch);
+  }
+
+  // Áp dụng cho cả header và mini-header
+  setupSearch("search-input", "search-btn");
+  setupSearch("mini-search-input", "mini-search-btn");
+});
+
+</script>
+
+
+</body>
+</html>

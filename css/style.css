@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+:root {
+  --main-color: #443;
+  --border-radius: 95% 4% 97% 5% / 4% 94% 3% 95%;
+  --border-radius-hover: 4% 95% 6% 95% / 95% 4% 92% 5%;
+  --border: 0.2rem solid var(--main-color);
+  --border-hover: 0.2rem dashed var(--main-color);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  font-size: 9rem;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 0.05rem var(--main-color);
+  letter-spacing: 0.2rem;
+  text-align: center;
+  pointer-events: none;
+  position: relative;
+}
+
+.heading span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: var(--main-color);
+  font-size: 3rem;
+}
+
+.cart-section {
+  margin-top: 13rem;
+  padding: 3rem 9%;
+  background: #fff;
+}
+/* căn giữa nội dung ô table vertically */
+/* Header end */
+
+/* CART */
+.cart-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--main-color);
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.cart-table th,
+.cart-table td {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 1rem;
+}
+
+.cart-table th {
+  background-color: #f8f8f8;
+  color: var(--main-color);
+}
+.cart-table th,
+.cart-table td {
+  vertical-align: middle;
+}
+
+/* style cho checkbox: to, căn giữa */
+.cart-table input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* style cho ô số lượng */
+.cart-table input[type="number"] {
+  width: 70px;
+  height: 36px;
+  padding: 6px 8px;
+  font-size: 1.4rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* nâng kích thước cột giá cho rõ */
+.cart-table .product-price,
+.cart-table .total-price {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--main-color);
+}
+
+/* Cột sản phẩm: ảnh + thông tin sách */
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+/* Ảnh sách */
+.product-img {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+/* Tên và tác giả */
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* voucher: cho đẹp hơn, không full-width lấn sang footer */
+.voucher-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.voucher-section input {
+  flex: 1;
+  min-width: 280px;
+  padding: 0.9rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* footer bố cục cân chỉnh */
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 1.2rem 1.6rem;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  gap: 1rem;
+}
+
+/* phần trái (chọn tất cả / xóa) */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* nút xóa to hơn */
+.delete-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* phần phải (tổng tiền + nút thanh toán) */
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#total-amount {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--main-color);
+}
+
+/* nút thanh toán lớn hơn */
+.checkout-btn {
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+
+/* responsive nhỏ: giảm margin-top nếu cần */
+@media (max-width: 768px) {
+  .cart-section {
+    margin-top: 10rem;
+    padding: 2rem;
+  }
+  .cart-table th,
+  .cart-table td {
+    font-size: 1.4rem;
+  }
+  .voucher-section input {
+    min-width: 160px;
+  }
+  .footer-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+/* CART END */
+
+/* CHECKOUT */
+.checkout {
+  margin-top: 12rem;
+  padding: 5rem 9%;
+  background: #fff;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--main-color);
+  margin-bottom: 3rem;
+}
+
+.checkout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+/* --- Cột bên trái: Danh sách sản phẩm --- */
+.order-summary {
+  flex: 1 1 45%;
+  background: #f9f9f9;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--main-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.order-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+}
+
+.order-summary th,
+.order-summary td {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+}
+
+.order-summary img {
+  width: 60px;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+
+.order-summary .product-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.total {
+  text-align: right;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+
+/* --- Cột bên phải: Gồm 2 phần ghép lại --- */
+.shipping-info, .payment-method {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.shipping-info h2,
+.payment-method h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--main-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+/* --- Gom shipping-info và payment-method thành 1 cột --- */
+.shipping-payment-column {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* tạo khoảng cách giữa 2 khối */
+}
+
+/* --- Form --- */
+.shipping-info form,
+.payment-method form {
+  display: flex;
+  flex-direction: column;
+}
+
+.shipping-info label,
+.payment-method label {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.shipping-info input {
+  padding: 1rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+/* Khoảng cách giữa email và tiêu đề Hình thức thanh toán */
+.shipping-info form {
+  margin-bottom: 2rem;
+}
+
+.payment-methods {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.payment-methods label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+/* Input */
+#search-input-adv {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Nút tìm kiếm */
+#search-btn-adv {
+    background-color: #0679e4;
+    color: #04d0f9;
+    border: 2px solid;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#search-btn-adv:hover {
+    background-color: #00f7ff;
+}
