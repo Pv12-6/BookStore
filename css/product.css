@@ -1,0 +1,321 @@
+section .book-section {
+  width: 100%;
+}
+/* --- Tiêu đề trang --- */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+/* --- Danh sách sách --- */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Hiển thị nhiều sách hơn */
+  gap: 15px;
+  padding: 10px;
+}
+
+/* --- Thẻ sách --- */
+.book-item {
+  width: 100%;
+  max-width: 220px;
+  height: 370px;
+  background: #ffffff;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.2s;
+}
+.book-item:hover {
+  transform: translateY(-4px);
+  border-color: #333;
+}
+
+/* --- Ảnh sách --- */
+.book-img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-bottom: none; /* nếu muốn sát tuyệt đối */
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: #f9f9f9;
+}
+
+.book-item .book-info {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* --- Thông tin sách --- */
+
+.book-title {
+  font-size: large;
+  font-weight: bold;
+  color: #060a53c7;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.book-author {
+  color: #555;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.book-desc {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+  min-height: 50px;
+  line-height: 1.4;
+}
+
+/* --- Giá sách --- */
+.book-price {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.old-price span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.sale span {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.new-price span {
+  font-size: large;
+  color: #7300ff;
+  font-weight: bold;
+}
+
+/* --- Khu vực nút hành động --- */
+.book-actions {
+  display: grid;
+  grid-template-areas:
+    "info"
+    "add-buy";
+  gap: 8px;
+  width: 100%;
+  max-width: 300px; /* ví dụ */
+  padding: 3px;
+}
+
+.info {
+  grid-area: info;
+  display: flex;                 /* bật flex để căn giữa */
+  justify-content: center;       /* giữa ngang */    
+  align-items: center; /* giữa dọc */          
+  background-color: #007bff7c;
+  height: 30px;
+  text-decoration: none;
+  margin-top: 0px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 0.6rem 1.2rem; /* nhỏ hơn bản gốc */
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1.3rem; /* giảm chữ */
+  font-weight: bold;
+  transition: background 0.3s;
+
+}
+
+.add-buy {
+  grid-area: add-buy;
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.add-buy .add ,.add-buy .buy {
+  flex: 1;
+  grid-area: info;
+  display: flex;                 /* bật flex để căn giữa */
+  justify-content: center;       /* giữa ngang */    
+  align-items: center; /* giữa dọc */          
+  background-color: #6c757d;
+  height: 30px;
+  text-decoration: none;
+  margin-top: 0px;
+  color: #ffffff;
+  border: 0px solid;
+  padding: 0.6rem 1.2rem; /* nhỏ hơn bản gốc */
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1.3rem; /* giảm chữ */
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.add-buy .add { background-color: hsla(119, 100%, 50%, 0.518); }
+.add-buy .buy { background-color: #ff000083; }
+
+/* --- Nút --- */
+.add:hover, .buy:hover, .info:hover{
+
+  border: 2px solid;
+  color: #080303;
+}
+
+
+/* Ẩn tất cả các trang */
+.theloai {
+  display: none;
+}
+
+/* Hiện trang 1 mặc định nếu chưa có target */
+body:not(:has(:target)) #all {
+  display: block;
+}
+
+/* Hiện trang khi target */
+#all:target,
+#kinhte:target,
+#vanhoc:target,
+#thieunhi:target,
+#khoahoc:target {
+  display: block;
+}
+
+/* Pagination */
+.category {
+  text-align: center;
+  margin: 20px 0;
+}
+.category{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.category a {
+  display: inline-block;
+  padding: 6px 20px;
+  margin: 0 4px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  font-size: large;
+  text-decoration: none;
+  font-weight: bold;
+  color: #0a0606;
+  transition: 0.3s;
+}
+
+.category a:hover {
+  background: rgb(32, 32, 54);
+  color: #ffffff;
+}
+
+/* Highlight trang đang chọn */
+body:has(#all:target) .category a[href="#all"],
+body:has(#kinhte:target) .category a[href="#kinhte"],
+body:has(#vanhoc:target) .category a[href="#vanhoc"],
+body:has(#thieunhi:target) .category a[href="#thieunhi"],
+body:has(#khoahoc:target) .category a[href="#khoahoc"],
+body:not(:has(:target)) .category a[href="#all"] {
+  background: #333;
+  color: #ffffff;
+  pointer-events: none;
+}
+/* Ẩn checkbox */
+.popup-toggle {
+  display: none;
+}
+/* Popup mặc định ẩn */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 50px 80px;
+  font-size: 26px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 12px;
+  text-align: center;
+  z-index: 9999;
+  display: none; /* ẩn mặc định */
+  box-shadow: 0 8px 20px rgba(57, 215, 0, 0.3);
+}
+
+/* Nút đóng popup */
+.popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgb(3, 0, 0);
+}
+
+
+.page {
+  display: none;
+}
+
+/* Hiện trang 1 mặc định nếu chưa có target */
+body:not(:has(:target)) #page1 {
+  display: block;
+}
+
+/* Hiện trang khi target */
+#page1:target,
+#page2:target,
+#page3:target {
+  display: block;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.pagination a {
+  display: inline-block;
+  padding: 6px 20px;
+  margin: 0 4px;
+  border: 2px solid #912121;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #0a0606;
+  transition: 0.3s;
+}
+
+.pagination a:hover {
+  background: rgb(32, 32, 54);
+  color: #f1c40f;
+}
+
+/* Highlight trang đang chọn */
+body:has(#page1:target) .pagination a[href="#page1"],
+body:has(#page2:target) .pagination a[href="#page2"],
+body:has(#page3:target) .pagination a[href="#page3"],
+body:not(:has(:target)) .pagination a[href="#page1"] {
+  background: #333;
+  color: #f1c40f;
+  pointer-events: none;
+}

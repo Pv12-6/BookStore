@@ -1,0 +1,91 @@
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 0;
+  margin-top: 60px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ——— Chia kích thước từng cột ——— */
+.footer-column:nth-child(1),
+.footer-column:nth-child(2) {
+  flex: 1.2; /* rộng hơn */
+  min-width: 260px;
+}
+
+.footer-column:nth-child(3),
+.footer-column:nth-child(4) {
+  flex: 0.8; /* hẹp hơn */
+  min-width: 180px;
+}
+
+/* ——— Tiêu đề và nội dung ——— */
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #f1c40f;
+}
+
+.footer-column p,
+.footer-column li,
+.footer-column a {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+/* ——— Các biểu tượng MXH ——— */
+.social-icons {
+  display: flex;
+  flex-direction: column; /* xếp dọc */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    align-items: center;
+  }
+}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>trangdangnhap.com</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+        <style>
+    body {
+        margin: 0;
+        background-color: #cdcfc0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Times New Roman';
+        color: #333;
+    }
+    .container-dn {
+        background-color: rgba(237, 229, 219, 0.7);
+        border-radius: 5px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 800px;
+        height: 500px;
+        display: flex; 
+        overflow: hidden; 
+    }
+
+    .logo-section {
+        flex: 1; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: #cdcfc0; 
+    }
+
+    img.logo {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .form-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; 
+        padding: 40px 15px;
+        background-color: #F7F5F0; 
+    }
+
+
+    .tuade {
+        width: 60%;
+        background-color: transparent; 
+        border: none; 
+        color: #555843; 
+        padding: 10px 0; 
+        text-align: center;
+        margin-bottom: 25px; 
+        font-size: 24px; 
+        font-weight: bold;
+        letter-spacing: 2px;
+        border: 1px solid #000;
+        border-radius: 5px; 
+        
+    }
+
+    .dang-nhap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; 
+        gap: 15px; 
+    }
+
+    .input {
+        width: 80%; 
+        padding: 12px 15px; 
+        background-color: white; 
+        border: 1px solid #000;
+        border-radius: 5px; 
+        box-sizing: border-box;
+        font-size: 16px;
+        text-align: left; 
+        color: #333;
+    }
+    .input:focus {
+        outline: none;
+        border-color: #555843;
+    }
+
+    .hien-mk {
+        position: relative;
+        width: 80%;
+        margin-bottom: 10px; 
+    }
+    .hien-mk .input {
+        width: 100%;
+        padding-right: 40px; 
+    }
+    .pass-icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #888;
+        font-size: 16px;
+    }
+    
+    .tong-link {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border:1px;
+        gap: 0px; 
+        margin-top: 5px;
+        margin-bottom: 20px;
+        height: 40px; 
+    }
+
+    .link-text {
+        font-size: 14px;
+        margin: 0;
+        line-height: 1.4;
+        text-align: left;
+    }
+    .link-text a {
+        color: #555843; 
+        font-weight: bold;
+        text-decoration: underline; 
+    }
+    
+    .nut-dn { 
+        width: 80%; 
+        padding: 12px 20px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        background-color: #555843; 
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+.icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 25px;
+}
+
+.icon img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon img:hover {
+  transform: scale(1.2);
+}
+    .in-box{
+        position: fixed; 
+        z-index: 100; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%; 
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        display: none; 
+    }
+    .nd-box{
+        background-color: #fefefe;
+        padding: 30px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .out{
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .out:hover , .out:focus{
+      color: #000;
+      text-decoration: none;
+    }
+    .link-quay-lai {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+    .link-text-back {
+        color: #555843;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+  </head>
+  <body>
+    <div class="container-dn"> 
+        <div class="logo-section">
+            <img src="../images/logo.png" class="logo" alt="The Book Shop">
+        </div>
+
+        <div class="form-section"> 
+            <div class="tuade">
+                ĐĂNG NHẬP
+            </div>
+
+            <form class="dang-nhap" id="dangnhap">
+                <input type="text" placeholder=" Tên đăng nhập" class="input" id="emailinput">
+                <div class="hien-mk">
+                    <input type="password" placeholder="Mật khẩu" class="input" id="passwordinput">
+                    <i class="fas fa-eye pass-icon" id="iconmat"></i>
+                </div>
+
+                <div class="tong-link">
+                    <p class="link-text"> Quên mật khẩu ? <a href="qmk.html"> Nhấn vào đây</a></p>
+                    <p class="link-text create-account"> Bạn chưa có tài khoản ? <a href="register.html"> Tạo tài khoản</a></p>
+                </div>
+                
+                <button type="submit" class="nut-dn">ĐĂNG NHẬP</button>
+                <div class="link-quay-lai">
+                    <a href="trangquanly.html" class="link-text-back"></a>
+                </div>
+ 
+            </form>
+
+            <div class="icon">
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"
+                alt="Tiktok"
+            /></a>
+          </div>
+        </div>
+    </div>
+    
+    <div id = "dntc" class ="in-box">
+        <div class ="nd-box">
+          <span class ="out">&times;</span>
+          <h2> Đăng nhập thành công !</h2>
+        </div>
+    </div> 
+
+<script>
+const passwordinput = document.getElementById('passwordinput');
+const iconmat = document.getElementById('iconmat');
+const loginform = document.getElementById('dangnhap');
+const emailinput = document.getElementById('emailinput');
+const dntc = document.getElementById('dntc');
+const close = document.querySelector('.out');
+const ndbox = dntc ? dntc.querySelector('.nd-box h2') : null;
+
+if (dntc) {
+  dntc.style.display = 'none';
+}
+
+function hide() {
+  if (dntc) dntc.style.display = "none";
+}
+
+function showbox() {
+  if (dntc && ndbox) {
+    ndbox.textContent = 'Đăng nhập thành công!';
+    dntc.style.display = "flex";
+    setTimeout(() => {
+      hide();
+      // Chuyển hướng sang trang home-log.html sau khi thông báo hiển thị
+      window.location.href = "home-log.html"; 
+    }, 1000);
+  }
+}
+
+// Khi người dùng bấm nút Đăng nhập
+if (loginform) {
+  loginform.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const emailvalue = emailinput.value.trim();
+    const passwordvalue = passwordinput.value.trim();
+
+    if (emailvalue === '' || passwordvalue === '') {
+      alert('Vui lòng nhập đầy đủ thông tin!');
+    } else {
+      showbox(); // chỉ cần nhập đủ là hiện thông báo thành công
+    }
+  });
+}
+
+// Hiện/ẩn mật khẩu
+if (iconmat) {
+  iconmat.addEventListener('click', function() {
+    const currentType = passwordinput.getAttribute('type');
+    const newType = currentType === 'password' ? 'text' : 'password';
+    passwordinput.setAttribute('type', newType);
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+  });
+}
+
+// Đóng thông báo khi nhấn dấu X hoặc vùng ngoài
+if (close) close.addEventListener('click', hide);
+window.addEventListener('click', function(event) {
+  if (event.target === dntc) hide();
+});
+</script>
+
+
+
+  </body>
+</html>
