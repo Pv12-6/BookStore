@@ -465,3 +465,23 @@ section {
 
 /* Show modal when checkbox is checked */
 .success-modal-toggle:checked ~ .success-modal { display: flex; }
+
+
+/* CSS cho nút quay về trang chủ trong modal */
+.go-home {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #4CAF50; /* màu xanh lá */
+    color: white; /* chữ màu trắng */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.go-home:hover {
+    background-color: #45a049; /* màu xanh đậm khi hover */
+}
+
