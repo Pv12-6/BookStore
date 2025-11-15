@@ -83,6 +83,9 @@
     <section class="checkout">
         <h1 class="checkout-title">Thanh toán</h1>
 
+        <!-- Checkbox toggle for success modal (hidden) -->
+        <input type="checkbox" id="success-toggle" class="success-modal-toggle" hidden>
+
         <div class="checkout-container">
 
             <!-- Danh sách sản phẩm -->
@@ -158,9 +161,25 @@
                             <label><input type="radio" name="payment" checked> Thanh toán khi nhận hàng (COD)</label>
                         </div>
 
-                        <button type="button" id="confirmPayment" class="btn">Xác nhận thanh toán</button>
+                        <label for="success-toggle" class="com-checkout-btn" style="display:inline-block;text-decoration:none;text-align:center;cursor:pointer">Xác nhận thanh toán</label>
                     </form>
                 </div>
+            </div>
+        </div>
+
+        <!-- Success modal (CSS-only) -->
+        <div class="success-modal">
+            <label class="success-modal-backdrop" for="success-toggle"></label>
+            <div class="success-modal-box">
+                <div class="success-icon">✓</div>
+                <h2 class="success-modal-title">Thanh toán thành công!</h2>
+                <p class="success-modal-text">
+                    Cảm ơn bạn đã mua hàng. Đơn hàng của bạn đã được tiếp nhận và sẽ được xử lý sớm.
+                </p>
+                <div class="redirect-info">
+                    Trang sẽ tự động chuyển về trang chủ trong 3 giây...
+                </div>
+                <label for="success-toggle" class="success-modal-close">Đóng</label>
             </div>
         </div>
     </section>
@@ -182,3 +201,4 @@
 
 
 </html>
+
