@@ -213,7 +213,7 @@ section {
   padding: 0.9rem 1.6rem;
   border-radius: 8px;
   font-size: 1.5rem;
-  background-color: #443;       /* màu nền */
+  background-color: rgb(39, 39, 30);       /* màu nền */
   color: #fff;                  /* màu chữ */
   cursor: pointer;
   border: none;
