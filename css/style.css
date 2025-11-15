@@ -209,9 +209,19 @@ section {
 
 /* nút thanh toán lớn hơn */
 .checkout-btn {
+  display: inline-block;        /* Quan trọng */
   padding: 0.9rem 1.6rem;
   border-radius: 8px;
   font-size: 1.5rem;
+  background-color: #443;       /* màu nền */
+  color: #fff;                  /* màu chữ */
+  cursor: pointer;
+  border: none;
+  text-decoration: none;        /* đề phòng inline style mất hiệu lực */
+}
+
+.checkout-btn:hover {
+  background-color: #222 !important;
 }
 
 /* responsive nhỏ: giảm margin-top nếu cần */
