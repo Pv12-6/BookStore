@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>THE BOOK SHOP ADMIN - Quản lý Khách hàng</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="thanhtrangthai">
+      <h2>THE BOOK SHOP ADMIN</h2>
+      <nav id="sidebar-nav">
+        <a href="index.html" class="nav-item"
+          ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+        >
+        <a href="users.html" class="nav-item"
+          ><i class="fas fa-users"></i> Quản lý Khách hàng</a
+        >
+        <div
+          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
+        ></div>
+        <a href="product.html" class="nav-item"
+          ><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a
+        >
+        <a href="product-type.html" class="nav-item"
+          ><i class="fas fa-tags"></i> Quản lý Loại SP</a
+        >
+        <a href="import.html" class="nav-item"
+          ><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a
+        >
+        <a href="pricing.html" class="nav-item"
+          ><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a
+        >
+        <div
+          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
+        ></div>
+        <a href="orders.html" class="nav-item" style="display: none"
+          ><i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng</a
+        >
+        <a href="inventory.html" class="nav-item"
+          ><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a
+        >
+        <div style="flex-grow: 1"></div>
+        <a href="dangnhapadmin.html"
+          ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
+        >
+      </nav>
+    </div>
+
+    <div class="ndchinh">
+      <div class="tuade">
+        <h1>Quản lý Khách hàng</h1>
+        <div>
+          <label for="ngay">Admin | Ngày:</label>
+          <input type="date" id="ngay" />
+        </div>
+      </div>
+
+      <main>
+        <h2><i class="fas fa-users"></i> Danh sách Khách hàng</h2>
+        <p class="muted">
+          Chức năng Reset mật khẩu và Khóa/Mở khóa tài khoản (cần backend).
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên Khách hàng</th>
+              <th>Email</th>
+              <th>Vai trò</th>
+              <th>Tình trạng</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>111</td>
+              <td>Nguyễn Văn Meow</td>
+              <td>vanmeow@gmail.com</td>
+              <td>khachhang</td>
+              <td>Hoạt động</td>
+              <td>
+                <button class="btn btn-reset">Reset MK</button
+                ><button class="btn btn-lock">Khóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>112</td>
+              <td>Trần Thị MooChiE</td>
+              <td>moochie@gmail.com</td>
+              <td>khachhang</td>
+              <td>Bị khóa</td>
+              <td>
+                <button class="btn btn-reset">Reset MK</button
+                ><button class="btn btn-unlock">Mở khóa</button>
+              </td>
+            </tr>
+            <tr>
+              <td>113</td>
+              <td>Lê Văn Cam</td>
+              <td>cam@gmail.com</td>
+              <td>admin</td>
+              <td>Hoạt động</td>
+              <td>
+                <button class="btn btn-reset">Reset MK</button
+                ><button class="btn btn-lock">Khóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="muted">*Thao tác Reset/Khóa cần xử lý ở phía Backend.</p>
+      </main>
+    </div>
+  </body>
+</html>
