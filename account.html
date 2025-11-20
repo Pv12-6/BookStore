@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>THE BOOK SHOP ACCOUNT</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      :root {
+        --mau1: #555843;
+        --main: #f7f5f0;
+        --white: #fff;
+        --muted: #777;
+        --accent: #3498db;
+        --ok: #27ae60;
+        --danger: #e74c3c;
+        --panel: #cdcfc0;
+        --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        font-family: "Times New Roman", serif;
+      }
+
+      /* Reset & layout */
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        background: var(--main);
+        color: #333;
+      }
+
+      /* Hidden controls (radios/checkboxes) */
+      .tabs-input {
+        display: none;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 250px;
+        background: var(--panel);
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
+      }
+      .sidebar .title {
+        padding: 0 20px 12px 20px;
+        margin-bottom: 10px;
+        color: var(--mau1);
+        font-size:30px;
+        border-bottom: 1px solid var(--mau1);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+      .sidebar .img {
+        margin-bottom: 10px;
+        color: var(--mau1);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0 10px;
+        flex: 1;
+      }
+      .nav label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        color: var(--mau1);
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        user-select: none;
+        font-size: 0.98rem;
+      }
+      .nav label i {
+        width: 18px;
+        text-align: center;
+      }
+
+      /* highlight active label when its radio is checked */
+      #tab-tongquan:checked
+        ~ .container
+        .sidebar
+        .nav
+        label[for="tab-tongquan"],
+      #tab-hoso:checked ~ .container .sidebar .nav label[for="tab-hoso"],
+      #tab-diachi:checked ~ .container .sidebar .nav label[for="tab-diachi"],
+      #tab-yeuthich:checked
+        ~ .container
+        .sidebar
+        .nav
+        label[for="tab-yeuthich"],
+      #tab-donhang:checked ~ .container .sidebar .nav label[for="tab-donhang"] {
+        background: rgba(85, 88, 67, 0.1);
+        font-weight: 700;
+      }
+
+      .sidebar .spacer {
+        border-top: 1px solid rgba(85, 88, 67, 0.18);
+        margin: 10px 0;
+      }
+      .sidebar .bottom-links {
+        padding: 0 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .sidebar a {
+        color: var(--mau1);
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        display: block;
+        text-align: center;
+      }
+      .sidebar a.logout {
+        background: var(--mau1);
+        color: #fff;
+        margin-top: 10px;
+      }
+
+      /* Main */
+      .container {
+        display: flex;
+        flex: 1;
+      }
+      .main {
+        flex: 1;
+        padding: 28px;
+        background: var(--main);
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 12px;
+      }
+      .header h1 {
+        margin: 0;
+        color: var(--mau1);
+        font-size: 1.8rem;
+      }
+      .header .meta {
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      /* content sections: hidden by default */
+      .content-section {
+        display: none;
+      }
+
+      /* show section when corresponding radio is checked */
+      #tab-tongquan:checked ~ .container .main #content-tongquan,
+      #tab-hoso:checked ~ .container .main #content-hoso,
+      #tab-diachi:checked ~ .container .main #content-diachi,
+      #tab-yeuthich:checked ~ .container .main #content-yeuthich,
+      #tab-donhang:checked ~ .container .main #content-donhang {
+        display: block;
+      }
+
+      /* cards grid like original */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        background: var(--white);
+        padding: 18px;
+        border-radius: 8px;
+        box-shadow: var(--card-shadow);
+        color: var(--mau1);
+      }
+      .card .big {
+        font-size: 1.7rem;
+        font-weight: 700;
+      }
+      .card .small {
+        color: #666;
+        font-size: 0.92rem;
+      }
+
+      h2.section-title {
+        color: var(--mau1);
+        margin: 26px 0 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--mau1);
+      }
+
+      /* profile box */
+      .profile-box {
+        background: var(--white);
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        margin-bottom: 12px;
+      }
+      .profile-box label {
+        display: block;
+        font-weight: 700;
+        color: var(--mau1);
+        margin-bottom: 6px;
+      }
+      .profile-box .value {
+        background: #f9f9f9;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #eee;
+      }
+
+      /* address item */
+      .addr {
+        margin-bottom: 12px;
+      }
+
+      /* favorites */
+      .fav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px;
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        margin-bottom: 10px;
+      }
+      .fav i {
+        font-size: 1.6rem;
+        color: var(--mau1);
+      }
+      .fav .meta {
+        font-size: 0.95rem;
+        color: #666;
+      }
+
+      /* table (orders) */
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+      }
+      .table th,
+      .table td {
+        padding: 12px 14px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+      }
+      .table th {
+        background: var(--panel);
+        color: var(--mau1);
+        text-transform: uppercase;
+        font-size: 0.85rem;
+      }
+
+      /* small buttons */
+      .btn {
+        display: inline-block;
+        padding: 7px 10px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+      .btn-primary {
+        background: var(--mau1);
+        color: #fff;
+      }
+      .btn-warning {
+        background: #ffffff;
+        color: #fff;
+        text-align: center;
+      }
+      .btn-danger {
+        background: var(--danger);
+        color: #fff;
+      }
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid #ddd;
+        color: var(--mau1);
+      }
+
+      /* Modal via checkbox hack */
+      .modal-toggle {
+        display: none;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.18s;
+      }
+      .modal .panel {
+        width: 90%;
+        max-width: 520px;
+        background: var(--white);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      /* when checkbox checked show modal */
+      #modal-edit:checked ~ .container .modal#modal-edit-panel,
+      #modal-delete:checked ~ .container .modal#modal-delete-panel {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modal .actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-top: 12px;
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        .sidebar {
+          width: 64px;
+        }
+        .sidebar .title {
+          display: none;
+        }
+        .nav label span {
+          display: none;
+        }
+        .main {
+          padding: 18px;
+        }
+        .header h1 {
+          font-size: 1.2rem;
+        }
+      }
+
+      #modal-edit-hoso:checked ~ .container .modal#modal-edit-hoso-panel,
+#modal-edit-diachi:checked ~ .container .modal#modal-edit-diachi-panel,
+#modal-edit-donhang:checked ~ .container .modal#modal-edit-donhang-panel,
+#modal-add-diachi:checked ~ .container .modal#modal-add-diachi-panel,
+#modal-delete:checked ~ .container .modal#modal-delete-panel {
+  opacity:1; pointer-events:auto;
+}
+    </style>
+  </head>
+  <body>
+    <!-- Hidden radios to handle tab switching -->
+    <input
+      class="tabs-input"
+      type="radio"
+      name="tabs"
+      id="tab-tongquan"
+      checked
+    />
+    <input class="tabs-input" type="radio" name="tabs" id="tab-hoso" />
+    <input class="tabs-input" type="radio" name="tabs" id="tab-diachi" />
+    <input class="tabs-input" type="radio" name="tabs" id="tab-yeuthich" />
+    <input class="tabs-input" type="radio" name="tabs" id="tab-donhang" />
+    
+
+
+    <!-- Modals toggles riêng -->
+    <input class="modal-toggle" type="checkbox" id="modal-edit-hoso" />
+    <input class="modal-toggle" type="checkbox" id="modal-edit-diachi" />
+    <input class="modal-toggle" type="checkbox" id="modal-edit-donhang" />
+    <input class="modal-toggle" type="checkbox" id="modal-delete" />
+    <input class="modal-toggle" type="checkbox" id="modal-add-diachi">
+
+
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+      <div class="img">  <img src="../images/avatar.png" width="70px" alt="avt"> </div>
+        <div class="title" >Karra</div>
+        <nav class="nav">
+          <label for="tab-tongquan" title="Tổng quan"
+            ><i class="fas fa-file"></i> <span>Thông tin tài khoản</span></label
+          >
+          <label for="tab-hoso" title="Hồ sơ"
+            ><i class="fas fa-users"></i> <span>Hồ sơ cá nhân</span></label
+          >
+
+          <div class="spacer"></div>
+
+          <label for="tab-diachi" title="Địa chỉ"
+            ><i class="fas fa-book"></i> <span>Sổ địa chỉ</span></label
+          >
+
+          
+        </nav>
+
+        <div style="flex: 1"></div>
+
+        <div class="bottom-links">
+          <a class="logout" href="login.html"
+            ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
+          >
+          <a href="home-log.html"><i class="fas fa-arrow-left"></i> Quay lại</a>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="main">
+        <header class="header">
+          <h1 id="page-title">Thông tin tài khoản</h1>
+          <div class="meta">Ngày: 10 / 11 / 2025</div>
+        </header>
+
+        <!-- CONTENT: Tổng quan -->
+        <section id="content-tongquan" class="content-section">
+          <div class="cards">
+            <div class="card">
+              <div style="font-size: 1.6rem; color: var(--mau1)">
+                <i class="fas fa-truck"></i>
+              </div>
+              <div class="big">100</div>
+              <div class="small">Đơn hàng đã giao</div>
+            </div>
+            <div class="card">
+              <div style="font-size: 1.6rem; color: var(--danger)">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="big" style="color: var(--danger)">3</div>
+              <div class="small">Đơn hàng đã hủy</div>
+            </div>
+            <div class="card">
+              <div style="font-size: 1.6rem; color: rgb(255, 240, 36)">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="big">25</div>
+              <div class="small">Đánh giá</div>
+            </div>
+          </div>
+
+          <h2 class="section-title">
+            <i class="fas fa-chart-line"></i> Tổng quan chi tiêu
+          </h2>
+          <p style="color: #666; font-size: 1.05rem; line-height: 1.6">
+            <i class="fas fa-book-open"></i> Tổng số sách đã mua:
+            <strong style="color: var(--mau1)">200</strong><br />
+            <i class="fas fa-money-bill-wave"></i> Tổng số tiền đã chi tiêu:
+            <strong style="color: var(--mau1)">2.312.222.300 đ</strong><br />
+            <i class="fas fa-trophy" style="color: rgb(255, 202, 9)"></i> Hạng
+            thành viên: <strong style="color: #e6a700">Vàng</strong>
+          </p>
+
+          <div
+            style="
+              margin-top: 18px;
+              padding: 14px;
+              border: 1px dashed #ccc;
+              border-radius: 6px;
+              background: #fff;
+            "
+          >
+            <strong style="color: var(--mau1)"
+              ><i class="fas fa-info-circle"></i> Thông báo:</strong
+            >
+            <p style="margin: 8px 0 0">
+              Bạn cần chi tiêu thêm
+              <strong style="color: var(--danger)">50.000.000 đ</strong> nữa để
+              đạt hạng <strong>Kim Cương</strong> và nhận ưu đãi giảm giá
+              <strong>15%</strong> cho mọi đơn hàng!
+            </p>
+          </div>
+        </section>
+
+        <!-- CONTENT: Hồ sơ -->
+        <section id="content-hoso" class="content-section">
+          <h2 class="section-title">
+            <i class="fas fa-user-circle"></i> Thông tin cơ bản
+          </h2>
+          <div class="profile-box">
+            <label>Họ Tên:</label>
+            <div class="value">
+              Lê Văn Cam
+              <label for="modal-edit-hoso" class="btn btn-warning">
+            </div>
+
+            <label>Giới Tính:</label>
+            <div class="value">Nữ</div>
+
+            <label>Email:</label>
+            <div class="value">nguyenvana@gmail.com</div>
+
+            <label>Số Điện Thoại:</label>
+            <div class="value">
+              0901234567
+              <label for="modal-edit-hoso" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Sửa</label
+              >
+            </div>
+          </div>
+
+          <p style="color: #777; font-size: 0.95rem">
+            *Liên hệ bộ phận hỗ trợ để thay đổi Email/Giới tính.
+          </p>
+        </section>
+
+        <!-- CONTENT: Địa chỉ -->
+        <section id="content-diachi" class="content-section">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 12px;
+            "
+          >
+            <h2 class="section-title" style="margin: 0">
+              <i class="fas fa-map-marker-alt"></i> Danh sách Địa chỉ
+            </h2>
+            <label for="modal-add-diachi" class="btn btn-primary">Thêm địa chỉ mới</label>
+
+
+          </div>
+
+          <div class="profile-box addr">
+            <strong style="color: var(--mau1)"
+              >Nguyễn Văn Meow
+              <span
+                style="
+                  display: inline-block;
+                  margin-left: 8px;
+                  background: var(--ok);
+                  color: #fff;
+                  padding: 3px 8px;
+                  border-radius: 4px;
+                  font-size: 0.8rem;
+                "
+                >Mặc định</span
+              ></strong
+            >
+            <div style="margin-top: 8px">
+              <label>Số điện thoại:</label>
+              <div class="value">0901234567</div>
+            </div>
+            <div style="margin-top: 8px">
+              <label>Địa chỉ:</label>
+              <div class="value">
+                Số 123, Đường ABC, Phường 1, Quận Gò Vấp, TP. Hồ Chí Minh
+              </div>
+            </div>
+            <div style="text-align: right; margin-top: 8px">
+              <label for="modal-edit-diachi" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Sửa</label
+              >
+            </div>
+          </div>
+
+          <div class="profile-box addr">
+            <strong style="color: var(--mau1)">Trần Thị MooChiE</strong>
+            <div style="margin-top: 8px">
+              <label>Số điện thoại:</label>
+              <div class="value">0901234567</div>
+            </div>
+            <div style="margin-top: 8px">
+              <label>Địa chỉ:</label>
+              <div class="value">
+                Tòa nhà XYZ, Đường DEF, Phường 2, Quận 1, TP. Hồ Chí Minh
+              </div>
+            </div>
+            <div style="text-align: right; margin-top: 8px">
+              <label for="modal-edit-diachi" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Sửa</label
+              >
+              <span style="width: 6px; display: inline-block"></span>
+              <label for="modal-delete" class="btn btn-ghost"
+                >Đặt mặc định</label
+              >
+            </div>
+          </div>
+        </section>
+
+       </main>
+
+      <!-- Modal Hồ sơ -->
+      <div id="modal-edit-hoso-panel" class="modal">
+        <div class="panel">
+          <h3><i class="fas fa-user-edit"></i> Sửa Hồ sơ</h3>
+          <p>Chỉnh sửa thông tin cá nhân của bạn.</p>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label
+              >Họ tên:
+              <input
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px"
+                value="Lê Văn Cam"
+            /></label>
+            <label
+              >Email:
+              <input
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px"
+                value="ngueynvana@gmail.com"
+            /></label>
+            <label
+              >Số điện thoại:
+              <input
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px"
+                value="0901234567"
+            /></label>
+          </div>
+          <div class="actions">
+            <label for="modal-edit-hoso" class="btn btn-ghost">Hủy</label>
+            <label for="modal-edit-hoso" class="btn btn-primary">Lưu</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Địa chỉ -->
+      <div id="modal-edit-diachi-panel" class="modal">
+        <div class="panel">
+          <h3><i class="fas fa-map-marker-alt"></i> Sửa Địa chỉ</h3>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label
+              >Tên người nhận:
+              <input
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px"
+                value="Nguyễn Văn Meow"
+            /></label>
+            <label
+              >Số điện thoại:
+              <input
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px"
+                value="0901234567"
+            /></label>
+            <label
+              >Địa chỉ:
+              <input
+                style="padding: 8px; border: 1px solid #ddd; border-radius: 6px"
+                value="Số 123, Đường ABC, Q. Gò Vấp"
+            /></label>
+          </div>
+          <div class="actions">
+            <label for="modal-edit-diachi" class="btn btn-ghost">Hủy</label>
+            <label for="modal-edit-diachi" class="btn btn-primary">Lưu</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Đơn hàng -->
+      <div id="modal-edit-donhang-panel" class="modal">
+        <div class="panel">
+          <h3><i class="fas fa-info-circle"></i> Chi tiết Đơn hàng</h3>
+          <p>Đơn hàng #DH1001 - Ngày: 08/11/2025</p>
+          <p>
+            <strong>Sản phẩm:</strong> Cuốn sách X, Sách Y<br />
+            <strong>Tổng tiền:</strong> 250.000 đ<br />
+            <strong>Tình trạng:</strong> Đang giao
+          </p>
+          <div class="actions">
+            <label for="modal-edit-donhang" class="btn btn-ghost">Đóng</label>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Thêm Địa chỉ mới -->
+<div id="modal-add-diachi-panel" class="modal">
+  <div class="panel">
+    <h3> Thêm Địa chỉ mới</h3>
+    <p style="color:#666">Nhập thông tin địa chỉ giao hàng mới.</p>
+    <div style="display:flex; flex-direction:column; gap:8px">
+      <label>Họ và tên: 
+        <input style="padding:8px;border:1px solid #ddd;border-radius:6px" placeholder="Nhập họ tên">
+      </label>
+      <label>Số điện thoại: 
+        <input style="padding:8px;border:1px solid #ddd;border-radius:6px" placeholder="Nhập số điện thoại">
+      </label>
+      <label>Địa chỉ: 
+        <input style="padding:8px;border:1px solid #ddd;border-radius:6px" placeholder="Nhập địa chỉ chi tiết">
+      </label>
+    </div>
+    <div class="actions">
+      <label for="modal-add-diachi" class="btn btn-ghost">Hủy</label>
+      <label for="modal-add-diachi" class="btn btn-primary">Lưu</label>
+    </div>
+  </div>
+</div>
+    </div>
+    
+
+    <!-- end container -->
+  </body>
+</html>

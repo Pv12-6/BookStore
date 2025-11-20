@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sách</title>
+    <style>
+
+
+      .book-container {
+        display: flex;
+        gap: 30px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .book-image img {
+        width: 250px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      .book-info {
+        flex: 1;
+      }
+
+      .book-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .book-author {
+        color: #777;
+        margin: 5px 0;
+      }
+
+      .book-price {
+        font-size: 20px;
+        color: #e67e22;
+        margin: 10px 0;
+      }
+
+      .book-description {
+        margin-top: 15px;
+        line-height: 1.6;
+      }
+
+      .actions {
+        margin-top: 20px;
+      }
+
+      .add-cart,
+      .back-btn, .buy-cart {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .add-cart {
+        background-color: #27ae60;
+        color: white;
+      }
+
+      .add-cart:hover {
+        background-color: #2ecc71;
+      }
+
+       .buy-cart {
+        background-color: #ff0000;
+        color: white;
+      }
+
+      .buy-cart:hover {
+        background-color: hsl(7, 45%, 52%);
+      }
+      .back-btn {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .back-btn:hover {
+        background-color: #2980b9;
+      }
+    </style>
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+    <script src="../js/product.js" defer></script>
+  </head>
+  <body>
+        <header class="header">
+        <a href="#" class="logo">
+            <img src="../images/logo.png" alt="Bookstore Logo">
+        </a>
+
+        <nav class="navbar">
+            <a href="home-log.html">Trang chủ</a>
+            <a href="newbook-log.html">Sách mới</a>
+            <a href="bestsaler-log.html">Bán chạy</a>
+            <a href="voucher-log.html">Khuyến mãi</a>
+            <a href="aboutus-log.html">Về chúng tôi</a>
+            <a href="contact-log.html">Liên hệ</a>
+        </nav>
+           <!-- icon tìm kiếm -->
+            <div class="search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="search-input">
+  <button id="search-btn"><a href="search-log.html"><i class="fa fa-search"></i></a></button>
+</div><div class="user-actions">
+
+      <!-- dropdown wrapper -->
+      <div class="dropdown">
+        <div class="user-info" id="userToggle">
+          <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+          <span class="username">Karra</span>
+          <i class="fas fa-caret-down"></i>
+        </div>
+
+        <ul class="user-menu" id="userMenu">
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ sách</a></li>
+          <li><a href="orders.html"><i class="fas fa-history"></i> Lịch sử mua sách</a></li>
+          <li><a href="account.html"><i class="fas fa-user"></i> Thông tin tài khoản</a></li>
+          <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+        </ul>
+      </div>
+    </div>
+
+        
+    </header>
+  <!-- Header mini (ẩn lúc đầu) -->
+  <div class="mini-header">
+    <a href="home-log.html">Trang chủ</a>
+    <a href="newbook-log.html">Sách mới</a>
+    <a href="bestsaler-log.html">Bán chạy</a>
+    <a href="voucher-log.html">Khuyến mãi</a>
+    <a href="aboutus-log.html">Về chúng tôi</a>
+    <a href="contact-log.html">Liên hệ</a>
+    <!-- icon tìm kiếm -->
+            <div class="search-box mini-search-box">
+  <input type="text" placeholder="Tìm kiếm sách..." id="mini-search-input">
+  <button id="mini-search-btn"><a href="search-log.html"><i class="fa fa-search"></i></a></button>
+</div>
+<!-- Nơi hiển thị kết quả -->
+<div id="search-results"></div>
+    <a href="#"><i class="fas fa-user"></i></a>
+    </div>
+    </div>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <div style="height: 150px"></div><h1>Kết Quả tìm  kiếm cho "khoa học"</h1>
+  <section class="book-section">
+    <div id="khoahoc">
+  <div class="book-pages">
+    <div id="page2" class="page">
+       <div class="book-list">
+        <div class="book-item khoahoc">
+  <img src="../images/a short.jpg" alt="A Short History of Nearly Everything" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">A Short History...</h2>
+    <p class="old-price">Giá gốc: <span>220.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>187.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item khoahoc">
+  <img src="../images/vietnam.jpg" alt="Vietnam Natural History" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Vietnam: A Natural ...</h2>
+    <p class="old-price">Giá gốc: <span>200.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>170.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item khoahoc">
+  <img src="../images/the science.jpg" alt="The Science Book" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">The Science Book</h2>
+    <p class="old-price">Giá gốc: <span>180.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>162.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item khoahoc">
+  <img src="../images/Brief History of Time.jpg" alt="Brief History of Time" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Brief History of Time</h2>
+    <p class="old-price">Giá gốc: <span>200.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>170.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+<div id="page1" class="page">
+<div class="book-list">
+<div class="book-item khoahoc">
+  <img src="../images/cosmos.jpg" alt="Cosmos" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Cosmos</h2>
+    <p class="old-price">Giá gốc: <span>190.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>171.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item khoahoc">
+  <img src="../images/The Selfish Gene.jpg" alt="The Selfish Gene" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">The Selfish Gene</h2>
+    <p class="old-price">Giá gốc: <span>180.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>162.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+    <div class="book-item">
+    <img src="../images/Tư Duy Sáng Tạo.jpg" alt="Tư Duy Sáng Tạo" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Tư Duy Sáng Tạo</h2>
+      <p class="old-price">Giá gốc: <span>160.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>144.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="book-item">
+  <img src="../images/Khoa Học Mỗi Ngày.jpg" alt="Khoa Học Mỗi Ngày" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Khoa Học Mỗi Ngày</h2>
+    <p class="old-price">Giá gốc: <span>97.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>82.450₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div id="page3" class="page">
+<div class="book-list">
+<div class="book-item khoahoc">
+  <img src="../images/cosmos.jpg" alt="Cosmos" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Cosmos</h2>
+    <p class="old-price">Giá gốc: <span>190.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>171.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="book-item khoahoc">
+  <img src="../images/The Selfish Gene.jpg" alt="The Selfish Gene" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">The Selfish Gene</h2>
+    <p class="old-price">Giá gốc: <span>180.000₫</span></p>
+    <p class="sale">Giảm: <span>10%</span></p>
+    <p class="new-price">Giá sau giảm: <span>162.000₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+    <div class="book-item">
+    <img src="../images/Tư Duy Sáng Tạo.jpg" alt="Tư Duy Sáng Tạo" class="book-img">
+    <div class="book-info">
+      <h2 class="book-title">Tư Duy Sáng Tạo</h2>
+      <p class="old-price">Giá gốc: <span>160.000₫</span></p>
+      <p class="sale">Giảm: <span>10%</span></p>
+      <p class="new-price">Giá sau giảm: <span>144.000₫</span></p>
+      <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div class="book-item">
+  <img src="../images/Khoa Học Mỗi Ngày.jpg" alt="Khoa Học Mỗi Ngày" class="book-img">
+  <div class="book-info">
+    <h2 class="book-title">Khoa Học Mỗi Ngày</h2>
+    <p class="old-price">Giá gốc: <span>97.000₫</span></p>
+    <p class="sale">Giảm: <span>15%</span></p>
+    <p class="new-price">Giá sau giảm: <span>82.450₫</span></p>
+    <div class="book-actions">
+      <a href="book-detail.html" class="info">Thông tin</a>
+      <div class="add-buy">
+          <button class="add">Thêm</button>
+          <button class="buy">Mua</button>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><!-- Popup chung nằm ngoài book-list -->
+<div id="login-popup" class="popup">
+  <span>Bạn Cần Đăng Nhập!</span>
+  <button class="close-popup">&times;</button>
+</div>
+  <!-- Nút chuyển trang -->
+  <div class="pagination">
+    <a href="#page1">1</a>
+    <a href="#page2">2</a>
+    <a href="#page3">3</a>
+  </div><!-- Popup chung nằm ngoài book-list -->
+<div id="login-popup" class="popup">
+  <span>Thêm Giỏ Hàng Thành công!</span>
+  <button class="close-popup">&times;</button>
+</div>
+</div>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>The Bookstore</h3>
+          <p>Đem tri thức đến gần bạn hơn mỗi ngày.</p>
+          <p>© 2025 TheBookstore</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Liên hệ</h3>
+          <p>
+            Email:
+            <a href="mailto:sbookstore@gmail.com">sbookstore@gmail.com</a>
+          </p>
+          <p>Hotline: 0869 953 312</p>
+          <p>Địa chỉ: 123 Đường Sách, Quận 1, TP.HCM</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Liên kết nhanh</h3>
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Bán chạy</a></li>
+            <li><a href="#">Sách mới</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Về chúng tôi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Kết nối</h3>
+          <div class="social-icons">
+            <ul>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Tikok</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
