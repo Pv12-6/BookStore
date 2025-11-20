@@ -432,7 +432,7 @@ section {
 /* Nút tìm kiếm */
 #search-btn-adv {
     background-color: #0679e4;
-    color: #04d0f9;
+    color: #1554ff;
     border: 2px solid;
     padding: 8px 15px;
     margin-left: 5px;
@@ -441,10 +441,16 @@ section {
     font-weight: bold;
     transition: background-color 0.3s;
 }
+#search-btn-adv a{
+    transform: scale(0.95);
+    color: #ffffff;
+}
 
 #search-btn-adv:hover {
-    background-color: #00f7ff;
+    background-color: #151fe8;
+    color:#ffffff;
 }
+
 
 /* Success modal (CSS-only for checkout) */
 .success-modal-toggle { display: none !important; }
