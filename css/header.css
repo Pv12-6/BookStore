@@ -129,6 +129,7 @@ section {
 /* Đăng nhập */
 .auth-buttons .btn-login {
   color: var(--main-color);
+  text-align: center;
   background: transparent;
    font-size: 15px;
 }
@@ -140,6 +141,7 @@ section {
 
 /* Đăng ký */
 .auth-buttons .btn-register {
+  text-align: center;
   font-size: 15px;
   background: var(--main-color);
   color: #fff;

@@ -394,7 +394,7 @@ section {
 }
 
 .payment-methods {
-  margin-top: 1.5rem;
+  margin-top: 0;
   font-size: 1.5rem;
 }
 
@@ -473,7 +473,8 @@ section {
     padding: 10px 20px;
     margin-top: 15px;
     background-color: #4CAF50; /* màu xanh lá */
-    color: white; /* chữ màu trắng */
+    color: white;
+    font-size: 15px; /* chữ màu trắng */
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -484,4 +485,3 @@ section {
 .go-home:hover {
     background-color: #45a049; /* màu xanh đậm khi hover */
 }
-
