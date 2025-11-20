@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thanh Toán</title>
 
-    <title>Thanh Toán</title>
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -18,6 +17,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/product.js"></script>
+    <script src="../js/checkout.js"></script>
 </head>
 
 <body>
@@ -83,9 +83,6 @@
     <section class="checkout">
         <h1 class="checkout-title">Thanh toán</h1>
 
-        <!-- Checkbox toggle for success modal (hidden) -->
-        <input type="checkbox" id="success-toggle" class="success-modal-toggle" hidden>
-
         <div class="checkout-container">
 
             <!-- Danh sách sản phẩm -->
@@ -142,16 +139,16 @@
                     <h2>Thông tin giao hàng</h2>
                     <form>
                         <label>Họ và tên</label>
-                        <input type="text" value="Karra" placeholder="Nhập họ tên">
+                        <input type="text" placeholder="Nhập họ tên">
 
                         <label>Địa chỉ</label>
-                        <input type="text" value="99 An Dương Vương, Phường 16, Quận 8, TP.Hồ Chí Minh" placeholder="Nhập địa chỉ giao hàng">
+                        <input type="text" placeholder="Nhập địa chỉ giao hàng">
 
                         <label>Số điện thoại</label>
-                        <input type="text" value="0946483533" placeholder="Nhập số điện thoại">
+                        <input type="text" placeholder="Nhập số điện thoại">
 
                         <label>Email (nếu có)</label>
-                        <input type="email" value="karra@gmail.com" placeholder="Nhập email">
+                        <input type="email" placeholder="Nhập email">
                     </form>
                 </div>
                 <div class="payment-method section-block">
@@ -161,32 +158,26 @@
                             <label><input type="radio" name="payment" checked> Thanh toán khi nhận hàng (COD)</label>
                         </div>
 
-                        <label for="success-toggle" class="com-checkout-btn" style="display:inline-block;text-decoration:none;text-align:center;cursor:pointer">Xác nhận thanh toán</label>
+                        <button type="button" id="confirmPayment" class="btn">Xác nhận thanh toán</button>
                     </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Success modal (CSS-only) -->
-        <div class="success-modal">
-            <label class="success-modal-backdrop" for="success-toggle"></label>
-            <div class="success-modal-box">
-                <div class="success-icon">✓</div>
-                <h2 class="success-modal-title">Thanh toán thành công!</h2>
-                <p class="success-modal-text">
-                    Cảm ơn bạn đã mua hàng. Đơn hàng của bạn đã được tiếp nhận và sẽ được xử lý sớm.
-                </p>
-                <div class="redirect-info">
-                    <a href="home-log.html" class="go-home">Quay về trang chủ</a>
                 </div>
             </div>
         </div>
     </section>
 </body>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('confirmPayment');
+        if (btn) {
+            btn.addEventListener('click', function () {
+                alert('Thanh toán thành công');
+                // Sau khi thông báo, trở về trang chủ (một cấp thư mục lên)
+                window.location.href = '../projects/home-log.html';
+            });
+        }
+    });
+</script>
+</body>
+
 </html>
-
-
-
-
-
