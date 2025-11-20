@@ -58,6 +58,7 @@ body {
   font-weight: 600;
 }
 
+
 /* Main area */
 .ndchinh {
   flex-grow: 1;
@@ -188,7 +189,7 @@ body {
   background: #fff0f0;
 }
 
-/* Buttons */
+/* label */
 .btn {
   padding: 8px 10px;
   border: none;
@@ -196,6 +197,7 @@ body {
   cursor: default;
   font-size: 0.85rem;
   margin-right: 6px;
+  size: 14px;
 }
 .btn:hover {
   opacity: 0.5;
@@ -302,4 +304,697 @@ body {
     order: 2;
     padding: 16px;
   }
+}
+
+/*product*/
+  .modal-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* Ban đầu ẩn */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  /* Các radio buttons phải ẩn */
+  input[type="radio"] {
+    display: none;
+  }
+
+
+  #add-product-modal:checked~.add-modal,
+  #view-sp001:checked~.view-sp001-modal,
+  #edit-sp001:checked~.edit-sp001-modal,
+  #delete-sp001:checked~.confirm-delete-sp001,
+  #view-sp002:checked~.view-sp002-modal,
+  #edit-sp002:checked~.edit-sp002-modal,
+  #delete-sp002:checked~.confirm-delete-sp002,
+  #view-sp003:checked~.view-sp003-modal,
+  #edit-sp003:checked~.edit-sp003-modal,
+  #delete-sp003:checked~.confirm-delete-sp003 {
+    display: flex;
+  }
+
+
+  /* Định dạng nội dung modal */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-add,
+  .btn-view,
+  .btn-edit,
+  .btn-delete {
+    /* Thêm styling nút của bạn tại đây */
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 2px;
+    /* ... */
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+  }
+
+  .boc {
+    display: flex;
+    gap: 75px;
+    justify-content: center;
+  }
+
+  .boc1 {
+    /* Thiết lập bố cục Flexbox theo chiều dọc cho toàn bộ khối nội dung chính */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Khoảng cách giữa các phần tử chính (Header, Ảnh+Chi tiết, Mô tả) */
+  }
+
+  /* Container bọc Ảnh và Chi tiết: Cần Flexbox theo chiều ngang */
+  .image-and-details {
+    display: flex;
+    gap: 30px;
+    /* Khoảng cách giữa ảnh và chi tiết */
+    align-items: flex-start;
+    /* Canh trên cùng */
+  }
+
+  .image-box img {
+    width: 170px;
+    height: 230px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    /* Giữa cả dọc và ngang */
+  }
+
+  .image img {
+    width: 120px;
+    height: 170px;
+    object-fit: cover;
+  }
+
+  .khung {
+    margin-left: auto;
+    width: fit-content;
+    font-family: 'Times New Roman';
+  }
+
+  .nd {
+    flex-grow: 1;
+    font-family: 'Times New Roman';
+  }
+  .description-text {
+    /* Tăng kích thước chữ cho mô tả */
+    font-size: 16px; 
+    /* Đảm bảo chữ được căn đều */
+    text-align: justify; 
+    /* Tạo khoảng cách trên dưới */
+    margin: 10px 0; 
+}
+
+
+ /*trang loại sp*/
+/* Modal sửa */
+.edit-sp001-modal-type,
+.edit-sp002-modal-type,
+.edit-sp003-modal-type,
+.confirm-an-sp001,
+.confirm-an-sp002,
+.confirm-an-sp003,
+.view-sp003-modal-type {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Khi radio được chọn → mở modal */
+#add-product-type:checked ~ .add-type,
+#edit-type-sp001:checked ~ .edit-sp001-modal-type,
+#edit-type-sp002:checked ~ .edit-sp002-modal-type,
+#edit-type-sp003:checked ~ .edit-sp003-modal-type,
+#an-sp001:checked ~ .confirm-an-sp001,
+#an-sp002:checked ~ .confirm-an-sp002,
+#an-sp003:checked ~ .confirm-an-sp003,
+#view-type-sp003:checked ~ .view-sp003-modal-type {
+    display: flex;
+}
+.modal-content-type {
+    max-width: 430px;        /* Thu nhỏ hộp lại */
+    padding: 20px 25px;      /* Tạo khoảng bên trong vừa phải */
+    text-align: center;
+    background:white;
+    padding: 20px;
+    border-radius: 8px;
+    width:90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content-type h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Thu gọn form */
+.modal-content-type .nd-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* CĂN GIỮA TẤT CẢ: p, input, select */
+    width: 100%;
+    gap: 10px;              /* Khoảng cách đều giữa các mục */
+}
+
+.modal-content-type .nd-type p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;      /* chữ nằm giữa */
+    width: 100%;
+  }
+
+/* Input và select phải tự căn giữa */
+.modal-content-type input,
+.modal-content-type select,
+.modal-content-type textarea {
+    width: 50%;              /* GIỮA KHUNG – rất quan trọng */
+    max-width: 250px;        /* Không quá rộng */
+    padding: 7px 10px;
+    border-radius: 3px;
+    font-family: 'Times New Roman';
+    font-size: 14px;
+
+}
+.modal-actions-type1 {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left:7%;
+}
+
+
+/* Actions căn giữa */
+.modal-actions-type {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+
+
+/*========================================= */
+
+/* Hàng bị khóa */
+.locked-row {
+  background: #fff4f4 !important;
+  color: #c0392b !important;
+}
+.locked-row td {
+  font-weight: 600;
+}
+#search {
+  width: 280px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+
+
+
+/* ========== OVERLAY ========== */
+.modal-pn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 999;
+}
+
+/* Hiện modal khi mở bằng #id */
+.modal-pn:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========== HỘP MODAL ========== */
+.modal-content {
+  background: #fff;
+  padding: 22px 25px;
+  width: 650px;
+  max-width: 95%;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+  animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ========== HEADER ========== */
+.modal-header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+/* ========== BẢNG CHI TIẾT ========== */
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.modal-table th,
+.modal-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.modal-table th {
+  background: #f1f1f1;
+}
+
+/* ========== NÚT ĐÓNG ========== */
+.close-btn {
+  display: inline-block;
+  background: #d9534f;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.2s;
+  text-align: center;
+}
+
+.close-btn:hover {
+  background: #c9302c;
+}
+
+/* ========== NÚT CẬP NHẬT ========== */
+.btn-update {
+  background: #5cb85c;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.btn-update:hover {
+  background: #449d44;
+}
+.control-panel .inline-form .btn-update {
+  background: #409440;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+/* ========== DÒNG NÚT HÀNH ĐỘNG ========== */
+.modal-actions {
+  text-align: center;
+  margin-top: 10px;
+}
+.modal-actions .btn-update,
+.modal-actions .close-btn {
+  font-size: 16px;       /* hoặc 15px nếu bạn thích nhỏ hơn */
+  padding: 10px 22px;    /* 2 nút cùng padding */
+  display: inline-block;
+}
+.modal-actions .btn {
+  font-size: 16px;
+  padding: 10px 22px;
+}
+
+/* đảm bảo sizing ổn định */
+.modal-table {
+  table-layout: fixed; /* quan trọng: phân chia theo width của col/colgroup */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* đặt width cho từng col qua class trên thẻ <col> */
+.modal-table col.col-code   { width: 12%; }
+.modal-table col.col-name   { width: 40%; }
+.modal-table col.col-qty    { width: 20%; }
+.modal-table col.col-price  { width: 18%; }
+.modal-table col.col-total  { width: 18%; }
+
+/* xử lý overflow cho ô tên (tránh bung layout) */
+.modal-table td,
+.modal-table th {
+  padding: 10px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+/* nếu cần cho ô tên cho phép wrap (nhiều dòng) thay đổi: */
+/* .modal-table td.name { white-space: normal; } */
+
+/* responsive: trên màn nhỏ, cho phép cuộn ngang */
+.modal-content {
+  max-width: 95%;
+  overflow-x: auto; /* để modal có thể cuộn ngang nếu bảng quá rộng */
+}
+
+/* (giữ nguyên các style căn lề bạn muốn) */
+.modal-table th.center, .modal-table td.center { text-align: center; }
+.modal-table th.right,  .modal-table td.right  { text-align: right; }
+
+
+
+/* đảm bảo bảng phân chia theo colgroup */
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* colgroup: set tỉ lệ đẹp */
+.modal-table col.col-code  { width: 15%; }
+.modal-table col.col-name  { width: 35%; }
+.modal-table col.col-qty   { width: 15%; }
+.modal-table col.col-price { width: 20%; }
+
+/* căn giữa / phải */
+.modal-table th.center, .modal-table td.center { text-align: center; }
+.modal-table th.right,  .modal-table td.right  { text-align: right; }
+
+/* input nằm bên phải, full width */
+.modal-table td input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 6px;
+  text-align: right;
+}
+
+/* sửa lỗi bị lệch hàng */
+.modal-table td,
+.modal-table th {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.modal-table td input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 6px;
+  text-align: right;
+  font-size: 14px;       /* match với td */
+  line-height: 1.4;      /* đảm bảo chiều cao dòng tương tự */
+  font-family: inherit;   /* kế thừa font của table */
+}
+.modal-content {
+  font-size: 14px;      /* đồng bộ font cho toàn bộ popup */
+  font-family: 'Poppins', sans-serif; /* nếu bạn dùng font này */
+}
+
+.modal-btn {
+  display: inline-block;
+  font-size: 15px;       /* đồng bộ size chữ */
+  padding: 8px 15px;     /* đồng bộ padding */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.modal-btn.close {
+  background: #d9534f;
+  color: #fff;
+}
+
+.modal-btn.close:hover {
+  background: #c9302c;
+}
+
+.modal-btn.update {
+  background: #5cb85c;
+  color: #fff;
+}
+
+.modal-btn.update:hover {
+  background: #449d44;
+}
+
+.modal-actions {
+  text-align: center;  /* căn giữa nút */
+  margin-top: 15px;
+}
+
+.modal-actions .btn,
+.modal-actions .close-btn {
+  display: inline-block;
+  font-size: 15px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0 6px; /* khoảng cách giữa các nút */
+  transition: 0.2s;
+}
+
+.modal-actions .close-btn {
+  background: #d9534f;
+  color: white;
+  text-align: center;
+}
+
+.modal-actions .close-btn:hover {
+  background: #c9302c;
+}
+.btn {
+    /* Loại bỏ gạch chân mặc định của thẻ <a> */
+    text-decoration: none;
+    size: 14px;
+    /* Các thuộc tính CSS khác cho nút bấm của bạn */
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    color: rgb(255, 255, 255); /* Ví dụ: màu chữ trắng */
+}
+
+/* Định kiểu cho từng nút */
+.btn-view {
+    background-color: #287fba; /* Màu xanh dương (như trong ảnh) */
+}
+
+.btn-edit {
+    background-color: #d5870a; /* Màu cam/vàng */
+}
+
+.btn-complete {
+    background-color: #1fa959; /* Màu xanh lá cây (như trong ảnh) */
+}
+/* Định kiểu cho nút Lưu/Đồng ý (thường là màu chính) */
+.btn-save, .btn-primary, .btn-confirm {
+    background-color: #3498db; /* Màu Xanh dương */
+    border-color: #3498db;
+}
+
+/* Định kiểu cho nút Hủy/Đóng (thường là màu nhạt hoặc xám) */
+.btn-cancel, .btn-close, .btn-secondary {
+    background-color: #696363; /* Màu Xám */
+    border-color: #696363;
+}
+
+.btn-cancel:hover, .btn-close:hover {
+    background-color: #7f8c8d;
+    border-color: #7f8c8d;
+}
+
+.btn-save:hover, .btn-primary:hover, .btn-confirm:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-filter {
+    background-color: #3498db; /* Màu xanh dương */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    line-height: normal; /* Giúp nút hiển thị chuẩn hơn */
+}
+
+/* Styles cho Popup (Modal) */
+.modal {
+    display: none; /* Mặc định ẩn popup */
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Lớp phủ mờ */
+}
+
+/* Hiện popup khi URL hash khớp */
+.modal:target {
+    display: block;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Đặt popup ở giữa màn hình */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Chiều rộng popup */
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-btn {
+    margin-top: 10px;
+    color: #aaa;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1;
+    text-align: center;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+
+
+.edit-price-sp001,
+.edit-price-sp002,
+.edit-price-sp003 {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-product-price:checked ~ .add-price,
+#edit-price-sp001:checked ~ .edit-price-sp001,
+#edit-price-sp002:checked ~ .edit-price-sp002,
+#edit-price-sp003:checked ~ .edit-price-sp003 {
+    display: flex;
+}
+
+.modal-content-price {
+    max-width: 430px;        /* Thu nhỏ hộp lại */
+    padding: 20px 25px;      /* Tạo khoảng bên trong vừa phải */
+    text-align: center;
+    background:white;
+    padding: 20px;
+    border-radius: 8px;
+    width:90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content-price h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Thu gọn form */
+.modal-content-price .nd-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* CĂN GIỮA TẤT CẢ: p, input, select */
+    width: 100%;
+    gap: 10px;              /* Khoảng cách đều giữa các mục */
+}
+
+.modal-content-price .nd-price p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;      /* chữ nằm giữa */
+    width: 100%;
+  }
+
+/* Input và select phải tự căn giữa */
+.modal-content-price input,
+.modal-content-price select,
+.modal-content-price textarea {
+    width: 50%;              /* GIỮA KHUNG – rất quan trọng */
+    max-width: 250px;        /* Không quá rộng */
+    padding: 7px 10px;
+    border-radius: 3px;
+    font-family: 'Times New Roman';
+    font-size: 14px;
+}
+.modal-actions-price1 {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left:1%;
+}
+.modal-actions-price {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left:3%;
 }

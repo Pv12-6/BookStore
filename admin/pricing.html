@@ -11,46 +11,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- SIDEBAR -->
     <div class="thanhtrangthai">
-      <h2>THE BOOK SHOP ADMIN</h2>
-      <nav id="sidebar-nav">
-        <a href="index.html" class="nav-item"
-          ><i class="fas fa-tachometer-alt"></i> Dashboard</a
-        >
-        <a href="users.html" class="nav-item"
-          ><i class="fas fa-users"></i> Quản lý Khách hàng</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="product.html" class="nav-item"
-          ><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a
-        >
-        <a href="product-type.html" class="nav-item"
-          ><i class="fas fa-tags"></i> Quản lý Loại SP</a
-        >
-        <a href="import.html" class="nav-item"
-          ><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a
-        >
-        <a href="pricing.html" class="nav-item"
-          ><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="orders.html" class="nav-item" style="display: none"
-          ><i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng</a
-        >
-        <a href="inventory.html" class="nav-item"
-          ><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a
-        >
-        <div style="flex-grow: 1"></div>
-        <a href="dangnhapadmin.html"
-          ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
-        >
-      </nav>
-    </div>
+        <h2>THE BOOK SHOP ADMIN</h2>
+        <nav id="sidebar-nav">
+            <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="users.html" class="nav-item"><i class="fas fa-users"></i> Quản lý Khách hàng</a>
 
+            <div style="border-top:1px solid rgba(85,88,67,0.2); margin:10px 0"></div>
+
+            <a href="product.html" class="nav-item"><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a>
+            <a href="product-type.html" class="nav-item"><i class="fas fa-tags"></i> Quản lý Loại SP</a>
+            <a href="import.html" class="nav-item"><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a>
+            <a href="pricing.html" class="nav-item active"><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a>
+
+            <div style="border-top:1px solid rgba(85,88,67,0.2); margin:10px 0"></div>
+
+            <a href="orders.html" class="nav-item" style="display:none"><i class="fas fa-shopping-cart"></i> Quản lý Đơn
+                hàng</a>
+
+            <a href="inventory.html" class="nav-item"><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a>
+
+            <a href="export.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Quản lý Xuất kho</a>
+
+            <div style="flex-grow:1"></div>
+
+            <a href="dangnhapadmin.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+        </nav>
+    </div>
     <div class="ndchinh">
       <div class="tuade">
         <h1>Quản lý Giá bán</h1>
@@ -68,9 +56,10 @@
             <select disabled>
               <option>Sách Văn học (Đang: 30%)</option>
               <option>Sách Kỹ năng (Đang: 20%)</option>
+              <option>Tiểu thuyết  (Đang: 10%)</option>
             </select>
             <input type="number" placeholder="% lợi nhuận" disabled />
-            <button class="btn btn-update" disabled>Cập nhật</button>
+            <label for="add-product-price" class="btn btn-update"disabled >Cập nhật</label>
           </div>
         </div>
 
@@ -94,20 +83,108 @@
               <td>50.000 đ</td>
               <td>30%</td>
               <td>65.000 đ</td>
-              <td><button class="btn btn-edit">Sửa %</button></td>
+              <td><label for="edit-price-sp001" class="btn btn-edit">Sửa %</label></td>
             </tr>
             <tr>
               <td>SP002</td>
-              <td>Bí quyết thành công</td>
+              <td>Sống xanh như những lá trà</td>
               <td>Sách Kỹ năng</td>
-              <td>85.000 đ</td>
+              <td>109.000 đ</td>
               <td>20%</td>
-              <td>102.000 đ</td>
-              <td><button class="btn btn-edit">Sửa %</button></td>
+              <td>130.800 đ</td>
+              <td><label for="edit-price-sp002" class="btn btn-edit">Sửa %</label></td>
+            </tr>
+            <tr>
+              <td>SP003</td>
+              <td>Hồ điệp và kình ngư</td>
+              <td>Tiểu thuyết</td>
+              <td>114.600 đ</td>
+              <td>10%</td>
+              <td>126.060 đ</td>
+              <td><label for="edit-price-sp003" class="btn btn-edit">Sửa %</label></td> 
             </tr>
           </tbody>
         </table>
       </main>
     </div>
-  </body>
+
+    <input type="radio" name="modal" id="none" checked />
+    <input type="radio" name="modal" id="add-product-price" />
+
+    <input type="radio" name="modal" id="edit-price-sp001" />
+
+    <input type="radio" name="modal" id="edit-price-sp002" />
+
+    <input type="radio" name="modal" id="edit-price-sp003" />
+
+    <div class="modal-form add-price">
+      <div class="modal-content-price">
+        <h3>Thêm giá bán mới</h3>
+
+        <div class="nd-price">
+          <p>Mã sản phẩm</p>
+          <input type="text" />
+
+          <p>Giá vốn</p>
+          <input type="number" />
+
+          <p>% lợi nhuận</p>
+          <input type="number" />
+        </div>
+
+        <div class="modal-actions-price1">
+          <label for="none" class="btn btn-delete">Hủy</label>
+          <label for="none" class="btn btn-add">Lưu</label>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal-form edit-price-sp001">
+    <div class="modal-content-price">
+      <h3>Sửa % lợi nhuận — SP001</h3>
+
+      <div class="nd-price">
+        <p>% Lợi nhuận mới</p>
+        <input type="number" placeholder="vd: 25" />
+      </div>
+
+      <div class="modal-actions-price">
+        <label for="none" class="btn btn-delete">Hủy</label>
+        <label for="none" class="btn btn-update">Cập nhật</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-form edit-price-sp002">
+    <div class="modal-content-price">
+      <h3>Sửa % lợi nhuận — SP002</h3>
+
+      <div class="nd-price">
+        <p>% Lợi nhuận mới</p>
+        <input type="number" />
+      </div>
+
+      <div class="modal-actions-price">
+        <label for="none" class="btn btn-delete">Hủy</label>
+        <label for="none" class="btn btn-update">Cập nhật</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-form edit-price-sp003">
+    <div class="modal-content-price">
+      <h3>Sửa % lợi nhuận — SP003</h3>
+
+      <div class="nd-price">
+        <p>% Lợi nhuận mới</p>
+        <input type="number" />
+      </div>
+
+      <div class="modal-actions-price">
+        <label for="none" class="btn btn-delete">Hủy</label>
+        <label for="none" class="btn btn-update">Cập nhật</label>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

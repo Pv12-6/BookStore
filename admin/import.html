@@ -1,108 +1,297 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>THE BOOK SHOP ADMIN - Quản lý Nhập hàng</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="thanhtrangthai">
-      <h2>THE BOOK SHOP ADMIN</h2>
-      <nav id="sidebar-nav">
-        <a href="index.html" class="nav-item"
-          ><i class="fas fa-tachometer-alt"></i> Dashboard</a
-        >
-        <a href="users.html" class="nav-item"
-          ><i class="fas fa-users"></i> Quản lý Khách hàng</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="product.html" class="nav-item"
-          ><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a
-        >
-        <a href="product-type.html" class="nav-item"
-          ><i class="fas fa-tags"></i> Quản lý Loại SP</a
-        >
-        <a href="import.html" class="nav-item"
-          ><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a
-        >
-        <a href="pricing.html" class="nav-item"
-          ><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="orders.html" class="nav-item" style="display: none"
-          ><i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng</a
-        >
-        <a href="inventory.html" class="nav-item"
-          ><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a
-        >
-        <div style="flex-grow: 1"></div>
-        <a href="dangnhapadmin.html"
-          ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
-        >
-      </nav>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THE BOOK SHOP ADMIN - Quản lý Nhập hàng</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <div class="thanhtrangthai">
+    <h2>THE BOOK SHOP ADMIN</h2>
+    <nav id="sidebar-nav">
+      <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="users.html" class="nav-item"><i class="fas fa-users"></i> Quản lý Khách hàng</a>
+
+      <div style="border-top:1px solid rgba(85,88,67,0.2); margin:10px 0"></div>
+
+      <a href="product.html" class="nav-item"><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a>
+      <a href="product-type.html" class="nav-item"><i class="fas fa-tags"></i> Quản lý Loại SP</a>
+      <a href="import.html" class="nav-item active"><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a>
+      <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a>
+
+      <div style="border-top:1px solid rgba(85,88,67,0.2); margin:10px 0"></div>
+
+      <a href="orders.html" class="nav-item" style="display:none"><i class="fas fa-shopping-cart"></i> Quản lý Đơn
+        hàng</a>
+
+      <a href="inventory.html" class="nav-item"><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a>
+
+      <a href="export.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Quản lý Xuất kho</a>
+
+      <div style="flex-grow:1"></div>
+
+      <a href="dangnhapadmin.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+    </nav>
+  </div>
+
+  <div class="ndchinh">
+    <div class="tuade">
+      <h1>Quản lý Nhập hàng</h1>
+      <div>
+        <label for="ngay">Admin | Ngày:</label>
+        <input type="date" id="ngay" />
+      </div>
     </div>
 
-    <div class="ndchinh">
-      <div class="tuade">
-        <h1>Quản lý Nhập hàng</h1>
-        <div>
-          <label for="ngay">Admin | Ngày:</label>
-          <input type="date" id="ngay" />
-        </div>
+    <main>
+      <div class="control-panel">
+        <h2><i class="fas fa-sign-in-alt"></i> Danh sách Phiếu nhập hàng</h2>
+        <button class="btn btn-add">
+          <i class="fas fa-plus"></i> Thêm Phiếu nhập mới
+        </button>
       </div>
 
-      <main>
-        <div class="control-panel">
-          <h2><i class="fas fa-sign-in-alt"></i> Danh sách Phiếu nhập hàng</h2>
-          <button class="btn btn-add">
-            <i class="fas fa-plus"></i> Thêm Phiếu nhập mới
-          </button>
-        </div>
-
-        <table class="data-table">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mã PN</th>
+            <th>Ngày nhập</th>
+            <th>Tổng chi phí</th>
+            <th>Số SP</th>
+            <th>Tình trạng</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PN001</td>
+            <td>01/10/2025</td>
+            <td>1.000.000 đ</td>
+            <td>3</td>
+            <td><span class="status-ok">Hoàn thành</span></td>
+            <td>
+              <a href="#view-pn001" class="btn btn-view" role="button">Xem CT</a>
+              <a href="#edit-pn001" class="btn btn-edit" role="button">Sửa</a>
+            </td>
+          </tr>
+          <tr>
+            <td>PN002</td>
+            <td>05/11/2025</td>
+            <td>550.000 đ</td>
+            <td>2</td>
+            <td><span class="status-pending">Chờ xử lý</span></td>
+            <td>
+              <a href="#view-pn002" class="btn btn-view">Xem CT</a>
+              <a href="#edit-pn002" class="btn btn-edit">Sửa</a>
+              <a href="#complete-pn002" class="btn btn-complete">Hoàn thành</a>
+            </td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+  <!-- Radio buttons hoặc a href #id cho popup -->
+  <!-- Xem chi tiết PN001 -->
+  <div id="view-pn001" class="modal-pn">
+    <div class="modal-content">
+      <div class="modal-header">Chi tiết Phiếu PN001</div>
+      <div class="modal-body">
+        <table class="modal-table">
+          <colgroup>
+            <col class="col-code">
+            <col class="col-name">
+            <col class="col-qty">
+            <col class="col-price">
+            <col class="col-total">
+          </colgroup>
           <thead>
             <tr>
-              <th>Mã PN</th>
-              <th>Ngày nhập</th>
-              <th>Tổng chi phí</th>
-              <th>Số SP</th>
-              <th>Tình trạng</th>
-              <th>Thao tác</th>
+              <th class="center">Mã SP</th>
+              <th class="center">Tên SP</th>
+              <th class="center">Số lượng</th>
+              <th class="center">Đơn giá</th>
+              <th class="center">Thành tiền</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>PN001</td>
-              <td>01/10/2025</td>
-              <td>1.000.000 đ</td>
-              <td>3</td>
-              <td><span class="status-ok">Hoàn thành</span></td>
-              <td><button class="btn btn-view">Xem CT</button></td>
+              <td class="center">SP001</td>
+              <td class="center">Số Đỏ</td>
+              <td class="right">2</td>
+              <td class="right">200.000 đ</td>
+              <td class="right">400.000 đ</td>
             </tr>
             <tr>
-              <td>PN002</td>
-              <td>05/11/2025</td>
-              <td>550.000 đ</td>
-              <td>2</td>
-              <td><span class="status-pending">Chờ xử lý</span></td>
-              <td>
-                <button class="btn btn-view">Xem CT</button
-                ><button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-complete">Hoàn thành</button>
-              </td>
+              <td class="center">SP002</td>
+              <td class="center">Chí Phèo</td>
+              <td class="right">1</td>
+              <td class="right">600.000 đ</td>
+              <td class="right">600.000 đ</td>
             </tr>
           </tbody>
         </table>
-      </main>
+
+      </div>
+      <a href="#" class="modal-btn close">Đóng</a>
     </div>
-  </body>
+  </div>
+  <!-- Sửa PN001 -->
+  <div id="edit-pn001" class="modal-pn">
+    <div class="modal-content">
+      <div class="modal-header">Sửa Phiếu PN001</div>
+
+      <form>
+        <table class="modal-table">
+          <colgroup>
+            <col class="col-code">
+            <col class="col-name">
+            <col class="col-qty">
+            <col class="col-price">
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th class="center">Mã SP</th>
+              <th class="center">Tên SP</th>
+              <th class="right">Số lượng</th>
+              <th class="right">Đơn giá</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="center">SP001</td>
+              <td class="center">Số Đỏ</td>
+              <td class="right"><input type="number" value="2" min="0"></td>
+              <td class="right"><input type="text" value="200.000 đ"></td>
+            </tr>
+
+            <tr>
+              <td class="center">SP002</td>
+              <td class="center">Cuốn B</td>
+              <td class="right"><input type="number" value="1" min="0"></td>
+              <td class="right"><input type="text" value="600.000 đ"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="modal-actions">
+          <a href="#" class="modal-btn update">Cập nhật</a>
+          <a href="#" class="modal-btn close">Đóng</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Xem chi tiết PN001 -->
+  <div id="view-pn002" class="modal-pn">
+    <div class="modal-content">
+      <div class="modal-header">Chi tiết Phiếu PN002</div>
+      <div class="modal-body">
+        <table class="modal-table">
+          <colgroup>
+            <col class="col-code">
+            <col class="col-name">
+            <col class="col-qty">
+            <col class="col-price">
+            <col class="col-total">
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="center">Mã SP</th>
+              <th class="center">Tên SP</th>
+              <th class="center">Số lượng</th>
+              <th class="center">Đơn giá</th>
+              <th class="center">Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center">SP0Đ3</td>
+              <td class="center">Harry Potter và Hòn đá phù thủy</td>
+              <td class="right">20</td>
+              <td class="right">200.000 đ</td>
+              <td class="right">4.000.000 đ</td>
+            </tr>
+            <tr>
+              <td class="center">SP004</td>
+              <td class="center">Harry Potter và Hội Phượng hoàng</td>
+              <td class="right">15</td>
+              <td class="right">230.000 đ</td>
+              <td class="right">3.000.000 đ</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <a href="#" class="modal-btn close">Đóng</a>
+    </div>
+  </div>
+  <!-- Sửa PN001 -->
+  <div id="edit-pn002" class="modal-pn">
+    <div class="modal-content">
+      <div class="modal-header">Sửa Phiếu PN002</div>
+
+      <form>
+        <table class="modal-table">
+          <colgroup>
+            <col class="col-code">
+            <col class="col-name">
+            <col class="col-qty">
+            <col class="col-price">
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th class="center">Mã SP</th>
+              <th class="center">Tên SP</th>
+              <th class="right">Số lượng</th>
+              <th class="right">Đơn giá</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="center">SP003</td>
+              <td class="center">Harry Potter và Hòn đá phù thủy</td>
+              <td class="right"><input type="number" value="20" min="0"></td>
+              <td class="right"><input type="text" value="200.000 đ"></td>
+            </tr>
+
+            <tr>
+              <td class="center">SP002</td>
+              <td class="center">Harry Potter và Hội Phượng hoàng</td>
+              <td class="right"><input type="number" value="15" min="0"></td>
+              <td class="right"><input type="text" value="230.000 đ"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="modal-actions">
+          <a href="#" class="modal-btn update">Cập nhật</a>
+          <a href="#" class="modal-btn close">Đóng</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- PN002 - Hoàn thành -->
+  <div id="complete-pn002" class="modal-pn">
+    <div class="modal-content">
+      <div class="modal-header">✅ Phiếu PN002 đã hoàn thành</div>
+
+      <div class="modal-body">
+      </div>
+      <div class="modal-actions">
+        <a href="#" class="btn close-btn">Đóng</a>
+      </div>
+    </div>
+
+</body>
+
 </html>

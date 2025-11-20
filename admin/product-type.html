@@ -1,113 +1,257 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>THE BOOK SHOP ADMIN - Quản lý Loại Sản phẩm</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="thanhtrangthai">
-      <h2>THE BOOK SHOP ADMIN</h2>
-      <nav id="sidebar-nav">
-        <a href="index.html" class="nav-item"
-          ><i class="fas fa-tachometer-alt"></i> Dashboard</a
-        >
-        <a href="users.html" class="nav-item"
-          ><i class="fas fa-users"></i> Quản lý Khách hàng</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="product.html" class="nav-item"
-          ><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a
-        >
-        <a href="product-type.html" class="nav-item"
-          ><i class="fas fa-tags"></i> Quản lý Loại SP</a
-        >
-        <a href="import.html" class="nav-item"
-          ><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a
-        >
-        <a href="pricing.html" class="nav-item"
-          ><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="orders.html" class="nav-item" style="display: none"
-          ><i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng</a
-        >
-        <a href="inventory.html" class="nav-item"
-          ><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a
-        >
-        <div style="flex-grow: 1"></div>
-        <a href="dangnhapadmin.html"
-          ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
-        >
-      </nav>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THE BOOK SHOP ADMIN - Quản lý Loại Sản phẩm</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="thanhtrangthai">
+    <h2>THE BOOK SHOP ADMIN</h2>
+    <nav id="sidebar-nav">
+      <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="users.html" class="nav-item"><i class="fas fa-users"></i> Quản lý Khách hàng</a>
+      <div style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"></div>
+      <a href="product.html" class="nav-item"><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a>
+      <a href="product-type.html" class="nav-item active"><i class="fas fa-tags"></i> Quản lý Loại SP</a>
+      <a href="import.html" class="nav-item"><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a>
+      <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a>
+      <div style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"></div>
+      <a href="orders.html" class="nav-item" style="display: none"><i class="fas fa-shopping-cart"></i> Quản lý Đơn
+        hàng</a>
+      <a href="inventory.html" class="nav-item"><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a>
+      <a href="export.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Quản lý Xuất kho</a>
+
+      <div style="flex-grow: 1"></div>
+      <a href="dangnhapadmin.html"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+    </nav>
+  </div>
+
+  <div class="ndchinh">
+    <div class="tuade">
+      <h1>Quản lý Loại Sản phẩm</h1>
+      <div>
+        <label for="ngay">Admin | Ngày:</label>
+        <input type="date" id="ngay" />
+      </div>
     </div>
 
-    <div class="ndchinh">
-      <div class="tuade">
-        <h1>Quản lý Loại Sản phẩm</h1>
-        <div>
-          <label for="ngay">Admin | Ngày:</label>
-          <input type="date" id="ngay" />
-        </div>
+    <main>
+      <div class="control-panel">
+        <h2><i class="fas fa-tags"></i> Danh sách Loại Sản phẩm</h2>
+        <label for="add-product-type" class="btn btn-add">
+          <i class="fas fa-plus"></i> Thêm Loại SP mới
+        </label>
       </div>
 
-      <main>
-        <div class="control-panel">
-          <h2><i class="fas fa-tags"></i> Danh sách Loại Sản phẩm</h2>
-          <button class="btn btn-add">
-            <i class="fas fa-plus"></i> Thêm Loại SP mới
-          </button>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID Loại</th>
+            <th>Tên Loại Sản phẩm</th>
+            <th>Tình trạng</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TL001</td>
+            <td>Sách Văn học</td>
+            <td>Hoạt động</td>
+            <td>
+              <label for="edit-type-sp001" class="btn btn-edit">Sửa</label>
+              <label for="an-sp001" class="btn btn-delete">Ẩn</label>
+            </td>
+          </tr>
+          <tr>
+            <td>TL002</td>
+            <td>Sách Kỹ năng</td>
+            <td>Hoạt động</td>
+            <td>
+              <label for="edit-type-sp002" class="btn btn-edit">Sửa</label>
+              <label for="an-sp002" class="btn btn-delete">Ẩn</label>
+            </td>
+          </tr>
+          <tr>
+            <td>TL003</td>
+            <td>Tiểu thuyết</td>
+            <td>Bị ẩn</td>
+            <td>
+              <label for="edit-type-sp003" class="btn btn-edit">Sửa</label><label for="view-type-sp003"
+                class="btn btn-unlock">Hiện</label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <input type="radio" name="modal" id="none" checked />
+  <input type="radio" name="modal" id="add-product-type" />
+
+  <input type="radio" name="modal" id="edit-type-sp001" />
+  <input type="radio" name="modal" id="an-sp001" />
+
+  <input type="radio" name="modal" id="edit-type-sp002" />
+  <input type="radio" name="modal" id="an-sp002" />
+
+
+  <input type="radio" name="modal" id="edit-type-sp003" />
+  <input type="radio" name="modal" id="an-sp003" />
+  <input type="radio" name="modal" id="view-type-sp003" />
+
+  <div class="modal-form add-type">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-plus"></i> Thêm Loại sản phẩm Mới</h3>
+      <form>
+        <div class="nd-type">
+
+          <p>Tình trạng:</p>
+          <select required>
+            <option value=""></option>
+            <option value="vh">Hoạt động</option>
+            <option value="kn">Bị ẩn</option>
+          </select>
+
+          <p>Mô tả:</p>
+          <textarea rows="4"></textarea>
         </div>
 
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>ID Loại</th>
-              <th>Tên Loại Sản phẩm</th>
-              <th>Tình trạng</th>
-              <th>Thao tác</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>TL001</td>
-              <td>Sách Văn học</td>
-              <td>Hoạt động</td>
-              <td>
-                <button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-delete">Ẩn</button>
-              </td>
-            </tr>
-            <tr>
-              <td>TL002</td>
-              <td>Sách Kỹ năng</td>
-              <td>Hoạt động</td>
-              <td>
-                <button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-delete">Ẩn</button>
-              </td>
-            </tr>
-            <tr>
-              <td>TL003</td>
-              <td>Truyện tranh</td>
-              <td>Bị ẩn</td>
-              <td>
-                <button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-unlock">Hiện</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </main>
+        <div class="modal-actions-type1">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" class="btn btn-save">Lưu Sản phẩm</label>
+        </div>
+      </form>
+
     </div>
-  </body>
+  </div>
+
+  <!-- Modal SỬA TL001 -->
+  <div class="modal-form edit-sp001-modal-type">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-edit"></i> Sửa Loại Sản phẩm</h3>
+
+      <form>
+        <div class="nd-type">
+          <p>ID Loại:</p>
+          <input type="text" value="TL001" disabled />
+
+          <p>Tên Loại Sản phẩm:</p>
+          <input type="text" value="Sách Văn học" required />
+
+          <p>Tình trạng:</p>
+          <select required>
+            <option value="active" selected>Hoạt động</option>
+            <option value="hidden">Bị ẩn</option>
+          </select>
+        </div>
+
+        <div class="modal-actions-type1">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" class="btn btn-save">Lưu Thay đổi</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal SỬA TL002 -->
+  <div class="modal-form edit-sp002-modal-type">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-edit"></i> Sửa Loại Sản phẩm</h3>
+
+      <form>
+        <div class="nd-type">
+          <p>ID Loại:</p>
+          <input type="text" value="TL002" disabled />
+
+          <p>Tên Loại Sản phẩm:</p>
+          <input type="text" value="Sách Kỹ năng" required />
+
+          <p>Tình trạng:</p>
+          <select required>
+            <option value="active" selected>Hoạt động</option>
+            <option value="hidden">Bị ẩn</option>
+          </select>
+        </div>
+
+        <div class="modal-actions-type1">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" class="btn btn-save">Lưu Thay đổi</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal SỬA TL003 -->
+  <div class="modal-form edit-sp003-modal-type">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-edit"></i> Sửa Loại Sản phẩm</h3>
+
+      <form>
+        <div class="nd-type">
+          <p>ID Loại:</p>
+          <input type="text" value="TL003" disabled />
+
+          <p>Tên Loại Sản phẩm:</p>
+          <input type="text" value="Tiểu thuyết" required />
+
+          <p>Tình trạng:</p>
+          <select required>
+            <option value="active">Hoạt động</option>
+            <option value="hidden" selected>Bị ẩn</option>
+          </select>
+        </div>
+
+        <div class="modal-actions-type1">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" class="btn btn-save">Lưu Thay đổi</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Xác nhận ẨN TL001 -->
+  <div class="modal-form confirm-an-sp001">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-eye-slash"></i> Ẩn Loại Sản phẩm?</h3>
+      <p>Bạn có chắc chắn muốn Ẩn loại sản phẩm <b>TL001 - Sách Văn học</b>?</p>
+
+      <div class="modal-actions-type">
+        <label for="none" class="btn btn-cancel">Hủy</label>
+        <label for="none" class="btn btn-delete">Ẩn</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Xác nhận ẨN TL002 -->
+  <div class="modal-form confirm-an-sp002">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-eye-slash"></i> Ẩn Loại Sản phẩm?</h3>
+      <p>Bạn có chắc chắn muốn Ẩn loại sản phẩm <b>TL002 - Sách Kỹ năng</b>?</p>
+
+      <div class="modal-actions-type">
+        <label for="none" class="btn btn-cancel">Hủy</label>
+        <label for="none" class="btn btn-delete">Ẩn</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIỆN TL003 -->
+  <div class="modal-form view-sp003-modal-type">
+    <div class="modal-content-type">
+      <h3><i class="fas fa-eye"></i> Hiện Loại Sản phẩm?</h3>
+      <p>Bạn muốn HIỆN lại loại sản phẩm <b>TL003 - Tiểu thuyết</b>?</p>
+
+      <div class="modal-actions-type">
+        <label for="none" class="btn btn-cancel">Hủy</label>
+        <label for="none" class="btn btn-unlock">Hiện</label>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

@@ -1,124 +1,526 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>THE BOOK SHOP ADMIN - Quản lý Sản phẩm</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="thanhtrangthai">
-      <h2>THE BOOK SHOP ADMIN</h2>
-      <nav id="sidebar-nav">
-        <a href="index.html" class="nav-item"
-          ><i class="fas fa-tachometer-alt"></i> Dashboard</a
-        >
-        <a href="users.html" class="nav-item"
-          ><i class="fas fa-users"></i> Quản lý Khách hàng</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="product.html" class="nav-item"
-          ><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a
-        >
-        <a href="product-type.html" class="nav-item"
-          ><i class="fas fa-tags"></i> Quản lý Loại SP</a
-        >
-        <a href="import.html" class="nav-item"
-          ><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a
-        >
-        <a href="pricing.html" class="nav-item"
-          ><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a
-        >
-        <div
-          style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"
-        ></div>
-        <a href="orders.html" class="nav-item" style="display: none"
-          ><i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng</a
-        >
-        <a href="inventory.html" class="nav-item"
-          ><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a
-        >
-        <div style="flex-grow: 1"></div>
-        <a href="dangnhapadmin.html"
-          ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
-        >
-      </nav>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>THE BOOK SHOP ADMIN - Quản lý Sản phẩm</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+  /*product*/
+  .modal-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* Ban đầu ẩn */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  /* Các radio buttons phải ẩn */
+  input[type="radio"] {
+    display: none;
+  }
+
+
+  #add-product-modal:checked~.add-modal,
+  #view-sp001:checked~.view-sp001-modal,
+  #edit-sp001:checked~.edit-sp001-modal,
+  #delete-sp001:checked~.confirm-delete-sp001,
+  #view-sp002:checked~.view-sp002-modal,
+  #edit-sp002:checked~.edit-sp002-modal,
+  #delete-sp002:checked~.confirm-delete-sp002,
+  #view-sp003:checked~.view-sp003-modal,
+  #edit-sp003:checked~.edit-sp003-modal,
+  #delete-sp003:checked~.confirm-delete-sp003 {
+    display: flex;
+  }
+
+  .modal-content h3 {
+    color: #2c3e50;
+    /* xanh than */
+    font-weight: 600;
+  }
+
+  .nd strong {
+    color: #333;
+  }
+
+  .modal-content {
+    background: #ffffff;
+    border: 1px solid #eee;
+  }
+
+  /* Định dạng nội dung modal */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-add,
+  .btn-view,
+  .btn-edit,
+  .btn-delete {
+    /* Thêm styling nút của bạn tại đây */
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 2px;
+    /* ... */
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+  }
+
+  .boc {
+    display: flex;
+    gap: 75px;
+    justify-content: center;
+  }
+
+  /* Bọc ảnh + thông tin sản phẩm */
+  .boc2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 16px;
+    font-family: 'Times New Roman';
+  }
+
+  /* Hàng chứa ảnh + thông tin */
+  .boc1 {
+    display: grid;
+    grid-template-columns: 180px auto;
+    /* ảnh | thông tin */
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* Container bọc Ảnh và Chi tiết: Cần Flexbox theo chiều ngang */
+  /* Định dạng Mô tả */
+  .description-text {
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  /* Sửa lỗi .nd đang bị lệch */
+  .nd {
+    /* Xóa margin-left cũ và để Flexbox quản lý */
+    font-size: 16px;
+    text-align: justify;
+    margin-left: 0;
+    flex-grow: 1;
+    font-family: 'Times New Roman';
+  }
+
+  .image-box img {
+    width: 170px;
+    height: 230px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+
+  .image img {
+    width: 120px;
+    height: 170px;
+    object-fit: cover;
+    margin-left: 40px;
+  }
+
+  .khung {
+    margin-left: auto;
+    margin-right: 10%;
+    width: fit-content;
+    font-family: 'Times New Roman';
+  }
+
+  .khung p {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .khung-sua {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+  }
+</style>
+
+<body>
+  <div class="thanhtrangthai">
+    <h2>THE BOOK SHOP ADMIN</h2>
+    <nav id="sidebar-nav">
+      <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="users.html" class="nav-item"><i class="fas fa-users"></i> Quản lý Khách hàng</a>
+      <div style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"></div>
+      <a href="product.html" class="nav-item active"><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a>
+      <a href="product-type.html" class="nav-item"><i class="fas fa-tags"></i> Quản lý Loại SP</a>
+      <a href="import.html" class="nav-item"><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a>
+      <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a>
+      <div style="border-top: 1px solid rgba(85, 88, 67, 0.2); margin: 10px 0"></div>
+      <a href="orders.html" class="nav-item" style="display: none"><i class="fas fa-shopping-cart"></i> Quản lý Đơn
+        hàng</a>
+      <a href="inventory.html" class="nav-item"><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a>
+      <a href="export.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Quản lý Xuất kho</a>
+
+      <div style="flex-grow: 1"></div>
+      <a href="dangnhapadmin.html"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+    </nav>
+  </div>
+
+  <div class="ndchinh">
+    <div class="tuade">
+      <h1>Quản lý Sản phẩm</h1>
+      <div>
+        <button for="ngay">Admin | Ngày:</button>
+        <input type="date" id="ngay" />
+      </div>
     </div>
 
-    <div class="ndchinh">
-      <div class="tuade">
-        <h1>Quản lý Sản phẩm</h1>
-        <div>
-          <label for="ngay">Admin | Ngày:</label>
-          <input type="date" id="ngay" />
-        </div>
+    <main>
+      <div class="control-panel">
+        <h2><i class="fas fa-boxes"></i> Danh sách Sản phẩm</h2>
+        <label for="add-product-modal" class="btn btn-add">
+          <i class="fas fa-plus"></i> Thêm Sản phẩm mới
+        </label>
       </div>
 
-      <main>
-        <div class="control-panel">
-          <h2><i class="fas fa-boxes"></i> Danh sách Sản phẩm</h2>
-          <button class="btn btn-add">
-            <i class="fas fa-plus"></i> Thêm Sản phẩm
-          </button>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mã SP</th>
+            <th>Tên Sản phẩm</th>
+            <th>Loại SP</th>
+            <th>Giá vốn</th>
+            <th>Tồn kho</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SP001</td>
+            <td>Sách Xanh</td>
+            <td>Sách Văn học</td>
+            <td>50.000 đ</td>
+            <td>150</td>
+            <td>
+              <label for="view-sp001" class="btn btn-view">Xem CT</label>
+              <label for="edit-sp001" class="btn btn-edit">Sửa</label>
+              <label for="delete-sp001" class="btn btn-delete">Xóa/Ẩn</label>
+            </td>
+          </tr>
+          <tr>
+            <td>SP002</td>
+            <td>Sống xanh như những lá trà</td>
+            <td>Sách Kỹ năng sống</td>
+            <td>109.000 đ</td>
+            <td>25</td>
+            <td>
+              <label for="view-sp002" class="btn btn-view">Xem CT</label>
+              <label for="edit-sp002" class="btn btn-edit">Sửa</label>
+              <label for="delete-sp002" class="btn btn-delete">Xóa/Ẩn</label>
+            </td>
+          </tr>
+          <tr>
+            <td>SP003</td>
+            <td>Hồ điệp và kình ngư</td>
+            <td>Tiểu thuyết</td>
+            <td>111.600 đ</td>
+            <td>14</td>
+            <td>
+              <label for="view-sp003" class="btn btn-view">Xem CT</label>
+              <label for="edit-sp003" class="btn btn-edit">Sửa</label>
+              <label for="delete-sp003" class="btn btn-delete">Xóa/Ẩn</label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+
+  <input type="radio" name="modal" id="none" checked />
+  <input type="radio" id="add-product-modal" name="modal">
+
+  <input type="radio" name="modal" id="view-sp001" />
+  <input type="radio" name="modal" id="edit-sp001" />
+  <input type="radio" name="modal" id="delete-sp001" />
+  <input type="radio" name="modal" id="view-sp002" />
+  <input type="radio" name="modal" id="edit-sp002" />
+  <input type="radio" name="modal" id="delete-sp002" />
+  <input type="radio" name="modal" id="view-sp003" />
+  <input type="radio" name="modal" id="edit-sp003" />
+  <input type="radio" name="modal" id="delete-sp003" />
+
+
+  <div class="modal-form add-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-plus"></i> Thêm Sản phẩm Mới</h3>
+      <div class="boc">
+        <div class="image-box">
+          <img src="../images/grid-no-image.png" alt="Ảnh SP" />
+        </div>
+        <form>
+          <div class="khung">
+            <p>Mã SP:</p>
+            <input type="text" required />
+
+            <p>Tên SP:</p>
+            <input type="text" required />
+
+            <p>Loại Sản phẩm:</p>
+            <select required>
+              <option value=" "> </option>
+              <option value="vh">Sách Văn học</option>
+              <option value="kn">Sách Kỹ năng</option>
+              <option value="tt">Tiểu thuyết </option>
+            </select>
+
+            <p>Giá vốn:</p>
+            <input type="number" required />
+
+            <p>Mô tả:</p>
+            <textarea rows="4"></textarea>
+          </div>
+
+
+          <div class="modal-actions">
+            <label for="none" class="btn btn-cancel">Hủy</label>
+            <label for="none" class="btn btn-save">Lưu</label>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="modal-form view-sp001-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-info-circle"></i> Chi tiết Sản phẩm: SP001</h3>
+      <div class="boc2">
+        <div class="boc1">
+          <div class="image">
+            <img src="../images/Sách xanh.jpg" alt="Ảnh SP" />
+          </div>
+
+          <div class="nd">
+            <p><strong>Tên:</strong> Sách Xanh</p>
+            <p><strong>Loại:</strong> Sách Văn học</p>
+            <p><strong>Giá vốn:</strong> 50.000 đ</p>
+            <p><strong>Tồn kho:</strong> 150</p>
+          </div>
+        </div>
+        <p class="description-text"><strong>Mô tả:</strong> Sách Xanh là cuốn sách chỉ dẫn người đọc cách thức để sống
+          xanh
+          nhưng không phải bằng những khẩu hiệu như "Đừng sử dụng"
+          hay "Hãy cắt giảm". Sách Xanh khéo léo đưa ra những thông điệp
+          của mình bằng những số liệu thống kê cụ thể mà khi nhìn vào nó,
+          bất kỳ ai cũng sẽ ngỡ ngàng vì sự phung phí của mình.
+          Sách Xanh gần gũi với cuộc sống và khơi mở những hành động đơn giản
+          mà bất kỳ ai cũng có thể làm được để bảo vệ cuộc sống và "nâng niu
+          Trái đất trong lòng bàn tay mình!".</p>
+
+        <div class="modal-actions">
+          <label for="none" class="btn btn-close">Đóng</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-form edit-sp001-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-edit"></i> Chỉnh sửa Sản phẩm: SP001</h3>
+      <form>
+        <div class="khung-sua">
+          <div class="image">
+            <img src="../images/Sách xanh.jpg" alt="Ảnh SP" />
+          </div>
+          <div class="khung">
+            <p>Tên SP:</p>
+            <input type="text" value="Sách Xanh" required />
+            <p>Giá vốn:</p>
+            <input type="number" value="50000" required />
+          </div>
         </div>
 
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Mã SP</th>
-              <th>Tên Sản phẩm</th>
-              <th>Loại SP</th>
-              <th>Giá vốn</th>
-              <th>Tồn kho</th>
-              <th>Thao tác</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>SP001</td>
-              <td>Sách Xanh</td>
-              <td>Sách Văn học</td>
-              <td>50.000 đ</td>
-              <td>150</td>
-              <td>
-                <button class="btn btn-view">Xem CT</button
-                ><button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-delete">Xóa/Ẩn</button>
-              </td>
-            </tr>
-            <tr>
-              <td>SP002</td>
-              <td>Bí quyết thành công</td>
-              <td>Sách Kỹ năng</td>
-              <td>85.000 đ</td>
-              <td>5</td>
-              <td>
-                <button class="btn btn-view">Xem CT</button
-                ><button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-delete">Xóa/Ẩn</button>
-              </td>
-            </tr>
-            <tr>
-              <td>SP003</td>
-              <td>Tình khúc mùa đông</td>
-              <td>Sách Văn học</td>
-              <td>60.000 đ</td>
-              <td>25</td>
-              <td>
-                <button class="btn btn-view">Xem CT</button
-                ><button class="btn btn-edit">Sửa</button
-                ><button class="btn btn-delete">Xóa/Ẩn</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </main>
+        <div class="modal-actions">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" type="submit" class="btn btn-save">Cập nhật</label>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
+
+  <div class="modal-form confirm-delete-sp001">
+    <div class="modal-content">
+      <h3><i class="fas fa-exclamation-triangle"></i> Xác nhận Xóa/Ẩn SP001</h3>
+      <p>Bạn có chắc muốn xóa hoặc ẩn sản phẩm "Sách Xanh"?</p>
+      <div class="modal-actions">
+        <label for="none" class="btn btn-cancel">Hủy</label>
+        <label for="none" class="btn btn-delete">Xác nhận</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ----------- MODAL SP002: XEM ---------- -->
+  <div class="modal-form view-sp002-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-info-circle"></i> Chi tiết Sản phẩm: SP002</h3>
+      <div class="boc2">
+        <div class="boc1">
+          <div class="image">
+            <img src="../images/song-xanh-nhu-nhung-la-tra.jpg" alt="Ảnh SP" />
+          </div>
+          <div class="nd">
+            <p><strong>Tên:</strong> Sống xanh như những lá trà</p>
+            <p><strong>Loại:</strong> Sách Kỹ năng sống</p>
+            <p><strong>Giá vốn:</strong> 109.000 đ</p>
+            <p><strong>Tồn kho:</strong> 25</p>
+          </div>
+        </div>
+        <p class="description-text"><strong>Mô tả:</strong> Quyển sách là tổng hợp các phương pháp sống thông thái của
+          người Nhật giúp người đọc cải thiện cách nhìn và cảm nhận
+          thế giới, bên cạnh việc tôn trọng thiên nhiên và môi trường.
+          Bằng những cách thức đơn giản như: mang theo đũa riêng khi ăn ngoài,
+          dùng nước gạo làm nước lau sàn, đi bộ hay đạp xe thay vì lái xe,
+          cách giữ dáng và chăm sóc da đẹp tự nhiên…
+          Những thông điệp “sống xanh” mà Kayaki chia sẻ trong quyển sách này rất
+          hy vọng sẽ mang đến nhiều điều tốt đẹp cho cuộc sống của bạn.</p>
+
+        <div class="modal-actions">
+          <label for="none" class="btn btn-close">Đóng</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ----------- MODAL SP002: SỬA ---------- -->
+  <div class="modal-form edit-sp002-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-edit"></i> Chỉnh sửa Sản phẩm: SP002</h3>
+      <form>
+        <div class="khung-sua">
+          <div class="image">
+            <img src="../images/song-xanh-nhu-nhung-la-tra.jpg" alt="Ảnh SP" />
+          </div>
+          <div class="khung">
+            <p>Tên SP:</p>
+            <input type="text" value="Sống xanh như những lá trà" required />
+            <p>Giá vốn:</p>
+            <input type="number" value="109000" required />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" class="btn btn-save">Cập nhật</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ----------- MODAL SP002: XÓA ---------- -->
+  <div class="modal-form confirm-delete-sp002">
+    <div class="modal-content">
+      <h3><i class="fas fa-exclamation-triangle"></i> Xác nhận Xóa/Ẩn SP002</h3>
+      <p>Bạn có chắc muốn xóa hoặc ẩn sản phẩm "Sống xanh như những lá trà"?</p>
+      <div class="modal-actions">
+        <label for="none" class="btn btn-cancel">Hủy</label>
+        <label for="none" class="btn btn-delete">Xác nhận</label>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ----------- MODAL SP003: XEM ---------- -->
+  <div class="modal-form view-sp003-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-info-circle"></i> Chi tiết Sản phẩm: SP003</h3>
+      <div class="boc2">
+        <div class="boc1">
+          <div class="image">
+            <img src="../images/Ho diep va kinh ngu.jpg" alt="Ảnh SP" />
+          </div>
+
+          <div class="nd">
+            <p><strong>Tên:</strong> Hồ điệp và kình ngư</p>
+            <p><strong>Loại:</strong> Tiểu thuyết</p>
+            <p><strong>Giá vốn:</strong> 114.600 đ</p>
+            <p><strong>Tồn kho:</strong> 14</p>
+          </div>
+        </div>
+        <p class="description-text"><strong>Mô tả:</strong> Một câu chuyện cuốn hút ngay từ những trang đầu tiên - Khi
+          tình
+          yêu trở thành sợi dây mong manh giữa sinh tử, phản bội và hy vọng.
+          Khi một nàng hồ điệp nhỏ bé chạm trán với kình ngư mạnh mẽ,
+          liệu đó là định mệnh hay chỉ là một giấc mộng chóng tàn?.</p>
+        <div class="modal-actions">
+          <label for="none" class="btn btn-close">Đóng</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ----------- MODAL SP003: SỬA ---------- -->
+  <div class="modal-form edit-sp003-modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-edit"></i> Chỉnh sửa Sản phẩm: SP003</h3>
+      <form>
+        <div class="khung-sua">
+          <div class="image">
+            <img src="../images/Ho diep va kinh ngu.jpg" alt="Ảnh SP" />
+          </div>
+          <div class="khung">
+            <p>Tên SP:</p>
+            <input type="text" value="Hồ điệp và kình ngư" required />
+            <p>Giá vốn:</p>
+            <input type="number" value="114600" required />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <label for="none" class="btn btn-cancel">Hủy</label>
+          <label for="none" class="btn btn-save">Cập nhật</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ----------- MODAL SP003: XÓA ---------- -->
+  <div class="modal-form confirm-delete-sp003">
+    <div class="modal-content">
+      <h3><i class="fas fa-exclamation-triangle"></i> Xác nhận Xóa/Ẩн SP003</h3>
+      <p>Bạn có chắc muốn xóa hoặc ẩn sản phẩm "Hồ điệp và kình ngư"?</p>
+      <div class="modal-actions">
+        <label for="none" class="btn btn-cancel">Hủy</label>
+        <label for="none" class="btn btn-delete">Xác nhận</label>
+      </div>
+    </div>
+  </div>
+
+</body>
+
 </html>
