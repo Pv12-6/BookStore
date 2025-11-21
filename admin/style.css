@@ -368,7 +368,6 @@ body {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-
   }
 
   .boc {
@@ -752,10 +751,11 @@ body {
   border-radius: 6px;
   text-decoration: none;
   transition: 0.2s;
+  text-align: right !important;
 }
 
 .modal-btn.close {
-  background: #d9534f;
+  background: #c84743;
   color: #fff;
 }
 
@@ -764,7 +764,7 @@ body {
 }
 
 .modal-btn.update {
-  background: #5cb85c;
+  background: #4da24d;
   color: #fff;
 }
 
