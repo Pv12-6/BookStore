@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thanh Toán</title>
-
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -17,71 +16,71 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/product.js"></script>
-    <script src="../js/checkout.js"></script>
 </head>
 
 <body>
     <header class="header">
-        <a href="#" class="logo">
-            <img src="../images/logo.png" alt="Bookstore Logo">
-        </a>
+    <a href="#" class="logo">
+      <img src="../images/logo.png" alt="Bookstore Logo">
+    </a>
 
-        <nav class="navbar">
-            <a href="home-log.html">Trang chủ</a>
-            <a href="newbook-log.html">Sách mới</a>
-            <a href="bestsaler-log.html">Bán chạy</a>
-            <a href="voucher-log.html">Khuyến mãi</a>
-            <a href="aboutus-log.html">Về chúng tôi</a>
-            <a href="contact-log.html">Liên hệ</a>
-        </nav>
-        <!-- icon tìm kiếm -->
-        <div class="search-box">
-            <input type="text" placeholder="Tìm kiếm sách..." id="search-input">
-            <button id="search-btn"><i class="fa fa-search"></i></button>
-        </div>
-        <div class="user-actions">
-
-            <!-- dropdown wrapper -->
-            <div class="dropdown">
-                <div class="user-info" id="userToggle">
-                    <img src="../images/avatar.png" alt="User Avatar" class="avatar">
-                    <span class="username">Karra</span>
-                    <i class="fas fa-caret-down"></i>
-                </div>
-
-                <ul class="user-menu" id="userMenu">
-                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ sách</a></li>
-                    <li><a href="orders.html"><i class="fas fa-history"></i> Lịch sử mua sách</a></li>
-                    <li><a href="account.html"><i class="fas fa-user"></i> Thông tin tài khoản</a></li>
-                    <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
-                </ul>
-            </div>
-        </div>
-
-
-    </header>
-
-    <!-- Header mini (ẩn lúc đầu) -->
-    <div class="mini-header">
-        <a href="index-log.html">Trang chủ</a>
-        <a href="newbook-log.html">Sách mới</a>
-        <a href="bestsaler-log.html">Bán chạy</a>
-        <a href="voucher-log.html">Khuyến mãi</a>
-        <a href="aboutus-log.html">Về chúng tôi</a>
-        <a href="contact-log.html">Liên hệ</a>
-        <!-- icon tìm kiếm -->
-        <div class="search-box mini-search-box">
-            <input type="text" placeholder="Tìm kiếm sách..." id="mini-search-input">
-            <button id="mini-search-btn"><i class="fa fa-search"></i></button>
-        </div>
-        <!-- Nơi hiển thị kết quả -->
-        <div id="search-results"></div>
-        <a href="#"><i class="fas fa-user"></i></a>
-
+    <nav class="navbar">
+      <a href="home-log.html">Trang chủ</a>
+      <a href="newbook-log.html">Sách mới</a>
+      <a href="bestsaler-log.html">Bán chạy</a>
+      <a href="voucher-log.html">Khuyến mãi</a>
+      <a href="aboutus-log.html">Về chúng tôi</a>
+      <a href="contact-log.html">Liên hệ</a>
+    </nav>
+    <!-- icon tìm kiếm -->
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm sách..." id="search-input">
+      <button id="search-btn"><a href="search-log.html"><i class="fa fa-search"></i></a></button>
     </div>
+    <div class="user-actions">
+
+      <!-- dropdown wrapper -->
+      <div class="dropdown">
+        <div class="user-info" id="userToggle">
+          <img src="../images/avatar.png" alt="User Avatar" class="avatar">
+          <span class="username">Karra</span>
+          <i class="fas fa-caret-down"></i>
+        </div>
+
+        <ul class="user-menu" id="userMenu">
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Giỏ sách</a></li>
+          <li><a href="orders.html"><i class="fas fa-history"></i> Lịch sử mua sách</a></li>
+          <li><a href="account.html"><i class="fas fa-user"></i> Thông tin tài khoản</a></li>
+          <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+  </header>
+  <!-- Header mini (ẩn lúc đầu) -->
+  <div class="mini-header">
+    <a href="home-log.html">Trang chủ</a>
+    <a href="newbook-log.html">Sách mới</a>
+    <a href="bestsaler-log.html">Bán chạy</a>
+    <a href="voucher-log.html">Khuyến mãi</a>
+    <a href="aboutus-log.html">Về chúng tôi</a>
+    <a href="contact-log.html">Liên hệ</a>
+    <!-- icon tìm kiếm -->
+    <div class="search-box mini-search-box">
+      <input type="text" placeholder="Tìm kiếm sách..." id="mini-search-input">
+      <button id="mini-search-btn"><a href="search-log.html"><i class="fa fa-search"></i></a></button>
+    </div>
+    <!-- Nơi hiển thị kết quả -->
+    <div id="search-results"></div>
+    <a href="#"><i class="fas fa-user"></i></a>
+  </div>
 
     <section class="checkout">
         <h1 class="checkout-title">Thanh toán</h1>
+
+        <!-- Checkbox toggle for success modal (hidden) -->
+        <input type="checkbox" id="success-toggle" class="success-modal-toggle" hidden>
 
         <div class="checkout-container">
 
@@ -139,16 +138,16 @@
                     <h2>Thông tin giao hàng</h2>
                     <form>
                         <label>Họ và tên</label>
-                        <input type="text" placeholder="Nhập họ tên">
+                        <input type="text" value="Karra" placeholder="Nhập họ tên">
 
                         <label>Địa chỉ</label>
-                        <input type="text" placeholder="Nhập địa chỉ giao hàng">
+                        <input type="text" value="99 An Dương Vương, Phường 16, Quận 8, TP.Hồ Chí Minh" placeholder="Nhập địa chỉ giao hàng">
 
                         <label>Số điện thoại</label>
-                        <input type="text" placeholder="Nhập số điện thoại">
+                        <input type="text" value="0946483533" placeholder="Nhập số điện thoại">
 
                         <label>Email (nếu có)</label>
-                        <input type="email" placeholder="Nhập email">
+                        <input type="email" value="karra@gmail.com" placeholder="Nhập email">
                     </form>
                 </div>
                 <div class="payment-method section-block">
@@ -158,26 +157,26 @@
                             <label><input type="radio" name="payment" checked> Thanh toán khi nhận hàng (COD)</label>
                         </div>
 
-                        <button type="button" id="confirmPayment" class="btn">Xác nhận thanh toán</button>
+                        <label for="success-toggle" class="com-checkout-btn" style="display:inline-block;text-decoration:none;text-align:center;cursor:pointer">Xác nhận thanh toán</label>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success modal (CSS-only) -->
+        <div class="success-modal">
+            <label class="success-modal-backdrop" for="success-toggle"></label>
+            <div class="success-modal-box">
+                <div class="success-icon">✓</div>
+                <h2 class="success-modal-title">Thanh toán thành công!</h2>
+                <p class="success-modal-text">
+                    Cảm ơn bạn đã mua hàng. Đơn hàng của bạn đã được tiếp nhận và sẽ được xử lý sớm.
+                </p>
+                <div class="redirect-info">
+                    <a href="home-log.html" class="go-home">Quay về trang chủ</a>
                 </div>
             </div>
         </div>
     </section>
 </body>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const btn = document.getElementById('confirmPayment');
-        if (btn) {
-            btn.addEventListener('click', function () {
-                alert('Thanh toán thành công');
-                // Sau khi thông báo, trở về trang chủ (một cấp thư mục lên)
-                window.location.href = '../projects/home-log.html';
-            });
-        }
-    });
-</script>
-</body>
-
 </html>
