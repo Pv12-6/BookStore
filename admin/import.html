@@ -31,6 +31,29 @@
     /* Chuyển sang đỏ tươi hơn một chút */
     color: #fff !important;
   }
+
+  /* --- 3. CSS GRID CĂN THẲNG HÀNG CÁC NÚT THAO TÁC --- */
+  .action-buttons {
+    display: grid !important;
+    /* Chia làm 3 cột: Xem (50px) - Sửa (50px) - Hoàn thành (90px) */
+    grid-template-columns: 50px 50px 90px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Tinh chỉnh nút con trong lưới */
+  .action-buttons .btn {
+    width: 100%;
+    padding: 6px 0 !important;
+    margin: 0 !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    font-size: 13px;
+  }
 </style>
 
 <body>
@@ -66,26 +89,29 @@
   <div class="ndchinh">
     <div class="tuade">
       <h1>Quản lý Nhập hàng</h1>
-      <div>
-        <label for="ngay">Admin | Ngày:</label>
-        <input type="date" id="ngay" />
-      </div>
     </div>
 
     <main>
       <div class="control-panel">
-        <h2><i class="fas fa-sign-in-alt"></i> Danh sách Phiếu nhập hàng</h2>
-        <a href="#add-pn" class="btn btn-add" style="text-decoration: none;">
-          <i class="fas fa-plus"></i> Thêm Phiếu nhập mới
+        <div class="inline-form">
+          <label>Tìm nhà cung cấp:</label>
+          <input type="text" placeholder="Nhập tên NCC..."
+            style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+          <label>Ngày:</label>
+          <input type="date" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+          <a href="import-search.html" class="btn btn-filter">Lọc</a>
+        </div>
+        <a href="#add-pn" class="btn btn-add" style="text-decoration: none; display: inline-flex; align-items: center;">
+          <i class="fas fa-plus" style="margin-right: 5px;"></i> Thêm Phiếu nhập mới
         </a>
       </div>
 
       <table class="data-table">
         <colgroup>
           <col style="width: 10%;">
-          <col style="width: 20%;">
+          <col style="width: 15%;">
           <col style="width: 10%;">
-          <col style="width: 10%;">
+          <col style="width: 15%;">
           <col style="width: 15%;">
           <col style="width: 10%;">
           <col style="width: 25%;">
@@ -102,18 +128,17 @@
             <th class="center">Thao tác</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td class="center">PN001</td>
             <td class="left">NXB Kim Đồng</td>
             <td class="center">01/10/2025</td>
-            <td class="right">1.000.000 đ</td>
+            <td class="right" style="font-weight:bold;">1.000.000 đ</td>
             <td class="center">2</td>
             <td class="center"><span class="status-ok">Hoàn thành</span></td>
-            <td class="center">
-              <a href="#view-pn001" class="btn btn-view" role="button" title="Xem chi tiết"> Xem CT </a>
-              <a href="#edit-pn001" class="btn btn-edit" role="button" title="Sửa">Sửa</a>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+              <a href="#edit-pn001" class="btn btn-edit">Sửa</a>
             </td>
           </tr>
 
@@ -121,13 +146,144 @@
             <td class="center">PN002</td>
             <td class="left">Nhã Nam</td>
             <td class="center">05/11/2025</td>
-            <td class="right">550.000 đ</td>
+            <td class="right" style="font-weight:bold;">550.000 đ</td>
             <td class="center">2</td>
             <td class="center"><span class="status-pending">Chờ xử lý</span></td>
-            <td class="center">
-              <a href="#view-pn002" class="btn btn-view" role="button" title="Xem chi tiết"> Xem CT </a>
-              <a href="#edit-pn002" class="btn btn-edit" role="button" title="Sửa">Sửa</a>
-              <a href="#complete-pn002" class="btn btn-complete" title="Hoàn thành">Hoàn thành</a>
+            <td class="action-buttons">
+              <a href="#view-pn002" class="btn btn-view">Xem</a>
+              <a href="#edit-pn002" class="btn btn-edit">Sửa</a>
+              <a href="#complete-pn002" class="btn btn-complete">Hoàn thành</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN003</td>
+            <td class="left">NXB Trẻ</td>
+            <td class="center">06/11/2025</td>
+            <td class="right" style="font-weight:bold;">2.500.000 đ</td>
+            <td class="center">10</td>
+            <td class="center"><span class="status-ok">Hoàn thành</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+              <a href="#edit-pn001" class="btn btn-edit">Sửa</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN004</td>
+            <td class="left">NXB Kim Đồng </td>
+            <td class="center">07/11/2025</td>
+            <td class="right" style="font-weight:bold;">8.000.000 đ</td>
+            <td class="center">50</td>
+            <td class="center"><span class="status-pending">Chờ xử lý</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn002" class="btn btn-view">Xem</a>
+              <a href="#edit-pn002" class="btn btn-edit">Sửa</a>
+              <a href="#complete-pn002" class="btn btn-complete">Hoàn thành</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN005</td>
+            <td class="left">NXB Kim Đồng </td>
+            <td class="center">08/11/2025</td>
+            <td class="right" style="font-weight:bold;">1.200.000 đ</td>
+            <td class="center">5</td>
+            <td class="center"><span class="status-ok">Hoàn thành</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+              <a href="#edit-pn001" class="btn btn-edit">Sửa</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN006</td>
+            <td class="left">NXB Trẻ</td>
+            <td class="center">09/11/2025</td>
+            <td class="right" style="font-weight:bold;">500.000 đ</td>
+            <td class="center">3</td>
+            <td class="center"><span class="status-cancel">Đã hủy</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN007</td>
+            <td class="left">NXB Trẻ</td>
+            <td class="center">10/11/2025</td>
+            <td class="right" style="font-weight:bold;">15.000.000 đ</td>
+            <td class="center">100</td>
+            <td class="center"><span class="status-pending">Chờ xử lý</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn002" class="btn btn-view">Xem</a>
+              <a href="#edit-pn002" class="btn btn-edit">Sửa</a>
+              <a href="#complete-pn002" class="btn btn-complete">Hoàn thành</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN008</td>
+            <td class="left">NXB Phụ Nữ</td>
+            <td class="center">11/11/2025</td>
+            <td class="right" style="font-weight:bold;">3.400.000 đ</td>
+            <td class="center">20</td>
+            <td class="center"><span class="status-ok">Hoàn thành</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+              <a href="#edit-pn001" class="btn btn-edit">Sửa</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN009</td>
+            <td class="left">Nhã Nam</td>
+            <td class="center">12/11/2025</td>
+            <td class="right" style="font-weight:bold;">900.000 đ</td>
+            <td class="center">10</td>
+            <td class="center"><span class="status-ok">Hoàn thành</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+              <a href="#edit-pn001" class="btn btn-edit">Sửa</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN010</td>
+            <td class="left">Nhã Nam</td>
+            <td class="center">13/11/2025</td>
+            <td class="right" style="font-weight:bold;">6.500.000 đ</td>
+            <td class="center">40</td>
+            <td class="center"><span class="status-pending">Chờ xử lý</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn002" class="btn btn-view">Xem</a>
+              <a href="#edit-pn002" class="btn btn-edit">Sửa</a>
+              <a href="#complete-pn002" class="btn btn-complete">Hoàn thành</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN011</td>
+            <td class="left">Nhã Nam</td>
+            <td class="center">14/11/2025</td>
+            <td class="right" style="font-weight:bold;">4.000.000 đ</td>
+            <td class="center">25</td>
+            <td class="center"><span class="status-ok">Hoàn thành</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
+              <a href="#edit-pn001" class="btn btn-edit">Sửa</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="center">PN012</td>
+            <td class="left">NXB Kim Đồng </td>
+            <td class="center">15/11/2025</td>
+            <td class="right" style="font-weight:bold;">1.100.000 đ</td>
+            <td class="center">8</td>
+            <td class="center"><span class="status-cancel">Đã hủy</span></td>
+            <td class="action-buttons">
+              <a href="#view-pn001" class="btn btn-view">Xem</a>
             </td>
           </tr>
         </tbody>
@@ -325,12 +481,16 @@
   <!-- PN002 - Hoàn thành -->
   <div id="complete-pn002" class="modal-pn">
     <div class="modal-content">
-      <div class="modal-header">Phiếu PN002 đã hoàn thành</div>
+      <h2 class="modal-header">Xác Nhận Hoàn Thành</h2>
 
-      <div class="modal-body">
-      </div>
-      <div style="width: 100%; display: flex; justify-content: center; margin-top: 15px;">
-        <a href="#" class="btn-do-do" onclick="closeDetail()">Đóng</a>
+      <p style="font-size: 16px; margin-bottom: 20px">
+        Bạn có chắc chắn muốn đánh dấu <strong>PN002</strong> là
+        <strong>đã hoàn thành</strong>?
+      </p>
+
+      <div class="modal-actions">
+        <a href="#" class="btn btn-close">Hủy</a>
+        <a href="#" class="btn btn-complete">Xác Nhận</a>
       </div>
     </div>
   </div>

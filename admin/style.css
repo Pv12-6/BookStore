@@ -4,11 +4,21 @@
   --thanhtrangthai-bg: #cdcfc0;
   --muted: #666;
 }
+/* --- ÉP TOÀN BỘ TRANG DÙNG TIMES NEW ROMAN --- */
+* {
+    font-family: "Times New Roman", serif !important;
+}
 
+/* Riêng icon FontAwesome thì phải giữ nguyên font của nó */
+.fas, .far, .fab, .fa {
+    font-family: "Font Awesome 5 Free" !important;
+}
 /* Reset cơ bản */
 * {
   box-sizing: border-box;
 }
+/* --- CSS CĂN THẲNG HÀNG NÚT THAO TÁC --- */
+
 body {
   margin: 0;
   font-family: "Times New Roman", serif;
