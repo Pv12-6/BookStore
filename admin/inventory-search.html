@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE BOOK SHOP ADMIN - Quản lý Tồn kho</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="thanhtrangthai">
+        <h2>THE BOOK SHOP ADMIN</h2>
+        <nav id="sidebar-nav">
+            <a href="index.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="users.html" class="nav-item"><i class="fas fa-users"></i> Quản lý Khách hàng</a>
+
+            <div style="border-top:1px solid rgba(85,88,67,0.2); margin:10px 0"></div>
+
+            <a href="product.html" class="nav-item"><i class="fas fa-boxes"></i> Quản lý Sản phẩm</a>
+            <a href="product-type.html" class="nav-item"><i class="fas fa-tags"></i> Quản lý Loại SP</a>
+            <a href="import.html" class="nav-item"><i class="fas fa-sign-in-alt"></i> Quản lý Nhập hàng</a>
+            <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i> Quản lý Giá bán</a>
+
+            <div style="border-top:1px solid rgba(85,88,67,0.2); margin:10px 0"></div>
+
+            <a href="orders.html" class="nav-item" style="display:none"><i class="fas fa-shopping-cart"></i> Quản lý Đơn hàng</a>
+
+            <a href="inventory.html" class="nav-item active"><i class="fas fa-warehouse"></i> Quản lý Tồn kho</a>
+
+            <a href="export.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Quản lý Xuất kho</a>
+
+            <div style="flex-grow:1"></div>
+
+            <a href="dangnhapadmin.html" class="nav-item"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+        </nav>
+    </div>
+
+    <div class="ndchinh">
+
+        <div class="tuade">
+            <h1>Quản lý Tồn kho</h1>
+            <div>
+                <label>Admin | Ngày:</label>
+                <input type="date" value="2025-10-10">
+            </div>
+        </div>
+
+        <h2>
+            <i class="fas fa-exclamation-triangle" style="color:#e74c3c"></i>
+            Cảnh báo Sản phẩm sắp hết hàng
+        </h2>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Mã SP</th>
+                    <th>Tên Sản phẩm</th>
+                    <th class="center">Tồn hiện tại</th>
+                    <th class="center">Ngưỡng tối thiểu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="low-stock">
+                    <td>SP002</td>
+                    <td>Nhà Giả Kim</td>
+                    <td class="red center">5</td>
+                    <td class="center">10</td>
+                </tr>
+                <tr class="low-stock">
+                    <td>SP005</td>
+                    <td>Empower B2</td>
+                    <td class="red center">1</td> <td class="center">10</td>
+                </tr>
+                <tr class="low-stock">
+                    <td>SP007</td>
+                    <td>Không Gia Đình</td>
+                    <td class="red center">3</td> <td class="center">10</td>
+                </tr>
+                <tr class="low-stock">
+                    <td>SP008</td>
+                    <td>Số Đỏ</td>
+                    <td class="red center">5</td>
+                    <td class="center">10</td>
+                </tr>
+                <tr class="low-stock">
+                    <td>SP011</td>
+                    <td>Rừng Na Uy</td>
+                    <td class="red center">2</td> <td class="center">10</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <h2 class="section-sub"><i class="fas fa-warehouse"></i> Danh Sách Sản Phẩm Tồn Kho</h2>
+
+        <div class="control-panel">
+            <div style="display:flex; align-items:center; gap:15px;">
+                <div style="display:flex; align-items:center; gap: 5px;">
+                    <label style="font-weight: bold;">Tra cứu SP:</label>
+                    <input type="text" placeholder="Nhập tên/mã SP"
+                        style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman';">
+                </div>
+
+                <div style="display:flex; align-items:center; gap: 5px;">
+                    <label style="font-weight: bold;">Thời gian:</label>
+                    <input type="date" id="check-date" value="2025-10-10"
+                        style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman';">
+                </div>
+
+                <button class="btn btn-view" onclick="filterInventory()">Xem báo cáo</button>
+            </div>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Mã SP</th>
+                    <th>Tên Sản phẩm</th>
+                    <th class="center">Loại SP</th>
+                    <th class="center">Nhập</th>
+                    <th class="center">Xuất</th>
+                    <th class="center">Tồn hiện tại</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>SP001</td>
+                    <td>Sách Xanh</td>
+                    <td class="center">Sách Văn học</td>
+                    <td class="center">220</td> <td class="center">60</td>  <td class="center">160</td>
+                </tr>
+                <tr>
+                    <td>SP002</td>
+                    <td>Bí quyết thành công</td>
+                    <td class="center">Sách Kỹ năng</td>
+                    <td class="center">20</td>
+                    <td class="center">15</td>
+                    <td class="red center">5</td> </tr>
+
+                <tr>
+                    <td>SP003</td>
+                    <td>Harry Potter và Hòn đá phù thủy</td>
+                    <td class="center">Sách Văn học</td>
+                    <td class="center">120</td>
+                    <td class="center">30</td>
+                    <td class="center">90</td>
+                </tr>
+                <tr>
+                    <td>SP004</td>
+                    <td>Bí quyết thành công</td>
+                    <td class="center">Sách Văn học</td>
+                    <td class="center">60</td>
+                    <td class="center">40</td>
+                    <td class="center">20</td>
+                </tr>
+                <tr>
+                    <td>SP005</td>
+                    <td>Dế Mèn Phiêu Lưu Ký</td>
+                    <td class="center">Sách Thiếu nhi</td>
+                    <td class="center">80</td>
+                    <td class="center">79</td> <td class="red center">1</td>
+                </tr>
+                <tr>
+                    <td>SP006</td>
+                    <td>Đắc Nhân Tâm</td>
+                    <td class="center">Sách Kỹ năng</td>
+                    <td class="center">350</td>
+                    <td class="center">150</td>
+                    <td class="center">200</td>
+                </tr>
+                <tr>
+                    <td>SP007</td>
+                    <td>Tuổi Trẻ Đáng Giá Bao Nhiêu</td>
+                    <td class="center">Sách Kỹ năng</td>
+                    <td class="center">150</td>
+                    <td class="center">147</td>
+                    <td class="red center">3</td>
+                </tr>
+                <tr>
+                    <td>SP008</td>
+                    <td>Mắt Biếc</td>
+                    <td class="center">Sách Văn học</td>
+                    <td class="center">100</td>
+                    <td class="center">95</td> <td class="red center">5</td> </tr>
+                <tr>
+                    <td>SP009</td>
+                    <td>Sherlock Holmes Toàn Tập</td>
+                    <td class="center">Sách Trinh thám</td>
+                    <td class="center">50</td>
+                    <td class="center">10</td>
+                    <td class="center">40</td>
+                </tr>
+                <tr>
+                    <td>SP010</td>
+                    <td>Lược Sử Thời Gian</td>
+                    <td class="center">Sách Khoa học</td>
+                    <td class="center">40</td>
+                    <td class="center">28</td>
+                    <td class="center">12</td>
+                </tr>
+                <tr>
+                    <td>SP011</td>
+                    <td>Rừng Na Uy</td>
+                    <td class="center">Sách Văn học</td>
+                    <td class="center">60</td>
+                    <td class="center">58</td>
+                    <td class="red center">2</td>
+                </tr>
+                <tr>
+                    <td>SP012</td>
+                    <td>Cà Phê Cùng Tony</td>
+                    <td class="center">Sách Kỹ năng</td>
+                    <td class="center">80</td>
+                    <td class="center">40</td>
+                    <td class="center">40</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

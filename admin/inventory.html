@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THE BOOK SHOP ADMIN - Quản lý Tồn kho</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
@@ -41,7 +41,7 @@
 
     <!-- NỘI DUNG CHÍNH -->
     <div class="ndchinh">
-        
+
         <div class="tuade">
             <h1>Quản lý Tồn kho</h1>
             <div>
@@ -71,6 +71,25 @@
                     <td class="red">5</td>
                     <td>10</td>
                 </tr>
+
+                <tr class="low-stock">
+                    <td>SP005</td>
+                    <td>Dế Mèn Phiêu Lưu Ký</td>
+                    <td class="red">4</td>
+                    <td>10</td>
+                </tr>
+                <tr class="low-stock">
+                    <td>SP007</td>
+                    <td>Tuổi Trẻ Đáng Giá Bao Nhiêu</td>
+                    <td class="red">5</td>
+                    <td>10</td>
+                </tr>
+                <tr class="low-stock">
+                    <td>SP011</td>
+                    <td>Rừng Na Uy</td>
+                    <td class="red">3</td>
+                    <td>10</td>
+                </tr>
             </tbody>
         </table>
 
@@ -78,12 +97,20 @@
         <h2 class="section-sub"><i class="fas fa-warehouse"></i> Danh Sách Sản Phẩm Tồn Kho</h2>
 
         <div class="control-panel">
-            <div style="display:flex; align-items:center; gap:8px;">
-                <label>Tra cứu SP:</label>
-                <input placeholder="Nhập tên/mã SP">
-                <label>Thời gian:</label>
-                <input type="date">
-                <button class="btn btn-view">Xem báo cáo</button>
+            <div style="display:flex; align-items:center; gap:15px;">
+                <div style="display:flex; align-items:center; gap: 5px;">
+                    <label style="font-weight: bold;">Tra cứu SP:</label>
+                    <input type="text" placeholder="Nhập tên/mã SP"
+                        style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman';">
+                </div>
+
+                <div style="display:flex; align-items:center; gap: 5px;">
+                    <label style="font-weight: bold;">Thời gian:</label>
+                    <input type="date" id="check-date"
+                        style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman';">
+                </div>
+
+                <a href="inventory-search.html" class="btn btn-view" >Xem báo cáo</a>
             </div>
         </div>
 
@@ -116,8 +143,104 @@
                     <td>5</td>
                     <td class="red">5</td>
                 </tr>
+
+                <tr>
+                    <td>SP003</td>
+                    <td>Harry Potter và Hòn đá phù thủy</td>
+                    <td>Sách Văn học</td>
+                    <td>100</td>
+                    <td>20</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>SP004</td>
+                    <td>Nhà Giả Kim</td>
+                    <td>Sách Văn học</td>
+                    <td>50</td>
+                    <td>15</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>SP005</td>
+                    <td>Dế Mèn Phiêu Lưu Ký</td>
+                    <td>Sách Thiếu nhi</td>
+                    <td>80</td>
+                    <td>76</td>
+                    <td class="red">4</td>
+                </tr>
+                <tr>
+                    <td>SP006</td>
+                    <td>Đắc Nhân Tâm</td>
+                    <td>Sách Kỹ năng</td>
+                    <td>300</td>
+                    <td>120</td>
+                    <td>180</td>
+                </tr>
+                <tr>
+                    <td>SP007</td>
+                    <td>Tuổi Trẻ Đáng Giá Bao Nhiêu</td>
+                    <td>Sách Kỹ năng</td>
+                    <td>150</td>
+                    <td>145</td>
+                    <td class="red">5</td>
+                </tr>
+                <tr>
+                    <td>SP008</td>
+                    <td>Mắt Biếc</td>
+                    <td>Sách Văn học</td>
+                    <td>90</td>
+                    <td>30</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>SP009</td>
+                    <td>Sherlock Holmes Toàn Tập</td>
+                    <td>Sách Trinh thám</td>
+                    <td>40</td>
+                    <td>5</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>SP010</td>
+                    <td>Lược Sử Thời Gian</td>
+                    <td>Sách Khoa học</td>
+                    <td>30</td>
+                    <td>10</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>SP011</td>
+                    <td>Rừng Na Uy</td>
+                    <td>Sách Văn học</td>
+                    <td>55</td>
+                    <td>52</td>
+                    <td class="red">3</td>
+                </tr>
+                <tr>
+                    <td>SP012</td>
+                    <td>Cà Phê Cùng Tony</td>
+                    <td>Sách Kỹ năng</td>
+                    <td>70</td>
+                    <td>25</td>
+                    <td>45</td>
+                </tr>
             </tbody>
         </table>
     </div>
+    <script>
+        // Hàm tự động set ngày hôm nay cho ô input type="date"
+        document.addEventListener('DOMContentLoaded', function () {
+            const dateInput = document.getElementById('check-date');
+            const today = new Date();
+
+            // Format ngày thành YYYY-MM-DD để gán vào value
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+
+            dateInput.value = `${yyyy}-${mm}-${dd}`;
+        });
+    </script>
 </body>
+
 </html>
