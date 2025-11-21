@@ -26,6 +26,13 @@ body {
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  position: sticky;    /* Giúp thanh này dính lại */
+    top: 0;              /* Dính ngay sát mép trên cùng của màn hình */
+    height: 100vh;       /* Chiều cao bắt buộc phải bằng 100% chiều cao màn hình */
+    overflow-y: auto;    /* Nếu menu dài quá màn hình, cho phép cuộn riêng thanh này */
+    
+    /* Giữ lại flex-shrink nếu có để nó không bị co lại */
+    flex-shrink: 0;
 }
 .thanhtrangthai h2 {
   text-align: center;
@@ -188,7 +195,13 @@ body {
 .data-table tbody tr.low-stock {
   background: #fff0f0;
 }
+/* Thêm vào admin/style.css */
+.data-table th.center, .data-table td.center { text-align: center; }
+.data-table th.right, .data-table td.right { text-align: right; }
+.data-table th.left, .data-table td.left { text-align: left; }
 
+/* Thêm chút padding cho cột số tiền đỡ dính sát lề phải */
+.data-table td.right { padding-right: 10px; }
 /* label */
 .btn {
   padding: 8px 10px;
