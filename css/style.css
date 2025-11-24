@@ -218,6 +218,7 @@ section {
   cursor: pointer;
   border: none;
   text-decoration: none;        /* đề phòng inline style mất hiệu lực */
+  font-weight: bold;
 }
 
 .checkout-btn:hover {
@@ -499,7 +500,6 @@ section {
   font-size: 15px;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: bold;
   text-align: center;
   transition: background-color 0.3s ease;
 }
