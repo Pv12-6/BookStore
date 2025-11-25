@@ -137,6 +137,7 @@
     border-radius: 6px;
     margin-top: 50px;
     margin-left: 30px;
+    cursor: pointer;
   }
 
   .image img {
@@ -163,6 +164,10 @@
     display: flex;
     gap: 25px;
     align-items: flex-start;
+  }
+
+  .khung-sua .image {
+    margin-top: 25px;
   }
 </style>
 
@@ -206,8 +211,8 @@
           <tr>
             <th>Mã SP</th>
             <th>Tên Sản phẩm</th>
+            <th>Tác giả</th>
             <th>Loại SP</th>
-            <th>Giá vốn</th>
             <th>Tồn kho</th>
             <th>Thao tác</th>
           </tr>
@@ -216,8 +221,8 @@
           <tr>
             <td>SP001</td>
             <td>Sách Xanh</td>
+            <td>Thomas M.Kostigen & Elizabeth Rogers</td>
             <td>Sách Văn học</td>
-            <td>50.000 đ</td>
             <td>150</td>
             <td>
               <label for="view-sp001" class="btn btn-view">Xem CT</label>
@@ -228,8 +233,8 @@
           <tr>
             <td>SP002</td>
             <td>Sống xanh như những lá trà</td>
+            <td>Toshimi A Kayaki</td>
             <td>Sách Kỹ năng sống</td>
-            <td>109.000 đ</td>
             <td>25</td>
             <td>
               <label for="view-sp002" class="btn btn-view">Xem CT</label>
@@ -240,8 +245,8 @@
           <tr>
             <td>SP003</td>
             <td>Hồ điệp và kình ngư</td>
+            <td>Tuế Kiến</td>
             <td>Tiểu thuyết</td>
-            <td>111.600 đ</td>
             <td>14</td>
             <td>
               <label for="view-sp003" class="btn btn-view">Xem CT</label>
@@ -274,7 +279,11 @@
       <h3><i class="fas fa-plus"></i> Thêm Sản phẩm Mới</h3>
       <div class="boc">
         <div class="image-box">
-          <img src="../images/grid-no-image.png" alt="Ảnh SP" />
+          <input type="file" id="upload-image-add-new" style="display: none;" accept="image/*">
+
+          <label for="upload-image-add-new">
+            <img src="../images/grid-no-image.png" alt="Nhấn để tải lên Ảnh SP" />
+          </label>
         </div>
         <form>
           <div class="khung">
@@ -282,6 +291,9 @@
             <input type="text" required />
 
             <p>Tên SP:</p>
+            <input type="text" required />
+
+            <p>Tác giả:</p>
             <input type="text" required />
 
             <p>Loại Sản phẩm:</p>
@@ -292,8 +304,6 @@
               <option value="tt">Tiểu thuyết </option>
             </select>
 
-            <p>Giá vốn:</p>
-            <input type="number" required />
 
             <p>Mô tả:</p>
             <textarea rows="4"></textarea>
@@ -322,20 +332,21 @@
 
           <div class="nd">
             <p><strong>Tên:</strong> Sách Xanh</p>
+            <p><strong>Tác giả:</strong> Thomas M.Kostigen &</p>
+            <p>Elizabeth Rogers</p>
             <p><strong>Loại:</strong> Sách Văn học</p>
-            <p><strong>Giá vốn:</strong> 50.000 đ</p>
             <p><strong>Tồn kho:</strong> 150</p>
           </div>
         </div>
         <p class="description-text"><strong>Mô tả:</strong> Sách Xanh là cuốn sách chỉ dẫn người đọc cách thức để sống
           xanh
-          nhưng không phải bằng những khẩu hiệu như "Đừng sử dụng"
-          hay "Hãy cắt giảm". Sách Xanh khéo léo đưa ra những thông điệp
+          nhưng không phải bằng những khẩu hiệu như “Đừng sử dụng”
+          hay “Hãy cắt giảm”. Sách Xanh khéo léo đưa ra những thông điệp
           của mình bằng những số liệu thống kê cụ thể mà khi nhìn vào nó,
           bất kỳ ai cũng sẽ ngỡ ngàng vì sự phung phí của mình.
           Sách Xanh gần gũi với cuộc sống và khơi mở những hành động đơn giản
-          mà bất kỳ ai cũng có thể làm được để bảo vệ cuộc sống và "nâng niu
-          Trái đất trong lòng bàn tay mình!".</p>
+          mà bất kỳ ai cũng có thể làm được để bảo vệ cuộc sống và “nâng niu
+          Trái đất trong lòng bàn tay mình!”.</p>
 
         <div class="modal-actions">
           <label for="none" class="btn btn-close">Đóng</label>
@@ -350,13 +361,21 @@
       <form>
         <div class="khung-sua">
           <div class="image">
-            <img src="../images/Sách xanh.jpg" alt="Ảnh SP" />
+            <input type="file" id="upload-image-sp001" style="display: none;" accept="image/*">
+
+            <label for="upload-image-sp001" style="cursor: pointer;">
+              <img src="../images/Sách xanh.jpg" alt="Nhấn để thay đổi Ảnh SP" />
+            </label>
           </div>
           <div class="khung">
             <p>Tên SP:</p>
             <input type="text" value="Sách Xanh" required />
-            <p>Giá vốn:</p>
-            <input type="number" value="50000" required />
+            <p>Tác giả:</p>
+            <input type="text" value="Thomas M.Kostigen & Elizabeth Rogers" required />
+            <p>Mô tả:</p>
+            <textarea required rows="8"
+              cols="25">Sách Xanh là cuốn sách chỉ dẫn người đọc cách thức để sống xanh nhưng không phải bằng những khẩu hiệu như “Đừng sử dụng” hay “Hãy cắt giảm”. Sách Xanh khéo léo đưa ra những thông điệp của mình bằng những số liệu thống kê cụ thể mà khi nhìn vào nó, bất kỳ ai cũng sẽ ngỡ ngàng vì sự phung phí của mình. Sách Xanh gần gũi với cuộc sống và khơi mở những hành động đơn giản mà bất kỳ ai cũng có thể làm được để bảo vệ cuộc sống và “nâng niu Trái đất trong lòng bàn tay mình!”</textarea>
+
           </div>
         </div>
 
@@ -390,8 +409,8 @@
           </div>
           <div class="nd">
             <p><strong>Tên:</strong> Sống xanh như những lá trà</p>
+            <p><strong>Tác giả:</strong> Toshimi A Kayaki</p>
             <p><strong>Loại:</strong> Sách Kỹ năng sống</p>
-            <p><strong>Giá vốn:</strong> 109.000 đ</p>
             <p><strong>Tồn kho:</strong> 25</p>
           </div>
         </div>
@@ -419,13 +438,20 @@
       <form>
         <div class="khung-sua">
           <div class="image">
-            <img src="../images/song-xanh-nhu-nhung-la-tra.jpg" alt="Ảnh SP" />
+            <input type="file" id="upload-image-sp001" style="display: none;" accept="image/*">
+
+            <label for="upload-image-sp001" style="cursor: pointer;">
+              <img src="../images/song-xanh-nhu-nhung-la-tra.jpg" alt="Nhấn để thay đổi Ảnh SP" />
+            </label>
           </div>
           <div class="khung">
             <p>Tên SP:</p>
             <input type="text" value="Sống xanh như những lá trà" required />
-            <p>Giá vốn:</p>
-            <input type="number" value="109000" required />
+            <p>Tác giả:</p>
+            <input type="text" value="Toshimi A Kayaki" required />
+            <p>Mô tả:</p>
+            <textarea required rows="8" cols="25"> Quyển sách là tổng hợp các phương pháp sống thông thái của người Nhật giúp người đọc cải thiện cách nhìn và cảm nhận thế giới, bên cạnh việc tôn trọng thiên nhiên và môi trường. Bằng những cách thức đơn giản như: mang theo đũa riêng khi ăn ngoài, dùng nước gạo làm nước lau sàn, đi bộ hay đạp xe thay vì lái xe, cách giữ dáng và chăm sóc da đẹp tự nhiên… Những thông điệp “sống xanh” mà Kayaki chia sẻ trong quyển sách này rất hy vọng sẽ mang đến nhiều điều tốt đẹp cho cuộc sống của bạn.
+            </textarea>
           </div>
         </div>
         <div class="modal-actions">
@@ -462,8 +488,8 @@
 
           <div class="nd">
             <p><strong>Tên:</strong> Hồ điệp và kình ngư</p>
+            <p><strong>Tác giả:</strong> Tuế Kiến</p>
             <p><strong>Loại:</strong> Tiểu thuyết</p>
-            <p><strong>Giá vốn:</strong> 114.600 đ</p>
             <p><strong>Tồn kho:</strong> 14</p>
           </div>
         </div>
@@ -471,7 +497,7 @@
           tình
           yêu trở thành sợi dây mong manh giữa sinh tử, phản bội và hy vọng.
           Khi một nàng hồ điệp nhỏ bé chạm trán với kình ngư mạnh mẽ,
-          liệu đó là định mệnh hay chỉ là một giấc mộng chóng tàn?.</p>
+          liệu đó là định mệnh hay chỉ là một giấc mộng chóng tàn?</p>
         <div class="modal-actions">
           <label for="none" class="btn btn-close">Đóng</label>
         </div>
@@ -487,13 +513,20 @@
       <form>
         <div class="khung-sua">
           <div class="image">
-            <img src="../images/Ho diep va kinh ngu.jpg" alt="Ảnh SP" />
+            <input type="file" id="upload-image-sp001" style="display: none;" accept="image/*">
+
+            <label for="upload-image-sp001" style="cursor: pointer;">
+              <img src="../images/Ho diep va kinh ngu.jpg" alt="Nhấn để thay đổi Ảnh SP" />
+            </label>
           </div>
           <div class="khung">
             <p>Tên SP:</p>
             <input type="text" value="Hồ điệp và kình ngư" required />
-            <p>Giá vốn:</p>
-            <input type="number" value="114600" required />
+            <p>Tác giả:</p>
+            <input type="text" value="Tuế Kiến" required />
+            <p>Mô tả:</p>
+            <textarea required rows="8" cols="25"> Một câu chuyện cuốn hút ngay từ những trang đầu tiên - Khi tình yêu trở thành sợi dây mong manh giữa sinh tử, phản bội và hy vọng. Khi một nàng hồ điệp nhỏ bé chạm trán với kình ngư mạnh mẽ, liệu đó là định mệnh hay chỉ là một giấc mộng chóng tàn?"
+            </textarea>
           </div>
         </div>
         <div class="modal-actions">
