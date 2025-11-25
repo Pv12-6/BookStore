@@ -945,8 +945,9 @@ body {
     text-align: right;
 }
 
-
-
+.edit-price-tl001,
+.edit-price-tl002,
+.edit-price-tl003,
 .edit-price-sp001,
 .edit-price-sp002,
 .edit-price-sp003 {
@@ -956,6 +957,10 @@ body {
 }
 
 #add-product-price:checked ~ .add-price,
+#edit-price-tl001:checked ~.edit-price-tl001,
+#edit-price-tl002:checked ~.edit-price-tl002,
+#edit-price-tl003:checked ~.edit-price-tl003,
+
 #edit-price-sp001:checked ~ .edit-price-sp001,
 #edit-price-sp002:checked ~ .edit-price-sp002,
 #edit-price-sp003:checked ~ .edit-price-sp003 {
