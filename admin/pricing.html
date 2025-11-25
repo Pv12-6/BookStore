@@ -54,11 +54,44 @@
               <option>Sách Kỹ năng (Đang: 20%)</option>
               <option>Tiểu thuyết  (Đang: 10%)</option>
             </select>
-            <input type="number" placeholder="% lợi nhuận" />
+            <input type="number" placeholder="% lợi nhuận"/>
             <label for="add-product-price" class="btn btn-update"disabled >Cập nhật</label>
           </div>
         </div>
+        <h2> Quản lý giá theo loại </h2>
+        <p> </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID Loại</th>
+              <th>Tên loại sản phẩm</th>
+              <th>% Lợi nhuận</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TL001</td>
+              <td>Sách Văn học</td>
+              <td>30%</td>
+              <td><label for="edit-price-tl001" class="btn btn-edit">Sửa %</label></td>
+            </tr>
+            <tr>
+              <td>TL002</td>
+              <td>Sách Kỹ năng</td>
+              <td>20%</td>
+              <td><label for="edit-price-tl002" class="btn btn-edit">Sửa %</label></td>
+            </tr>
+            <tr>
+              <td>TL003</td>
+              <td>Tiểu thuyết</td>
+              <td>10%</td>
+              <td><label for="edit-price-tl003" class="btn btn-edit">Sửa %</label></td> 
+            </tr>
+          </tbody>
+        </table>
 
+        <h2> Quản lý giá theo sản phẩm </h2>
         <table class="data-table">
           <thead>
             <tr>
@@ -95,17 +128,25 @@
               <td>Hồ điệp và kình ngư</td>
               <td>Tiểu thuyết</td>
               <td>114.600 đ</td>
-              <td>10%</td>
-              <td>126.060 đ</td>
+              <td>15%</td>
+              <td>131.790 đ</td>
               <td><label for="edit-price-sp003" class="btn btn-edit">Sửa %</label></td> 
             </tr>
           </tbody>
         </table>
+
       </main>
     </div>
 
     <input type="radio" name="modal" id="none" checked />
     <input type="radio" name="modal" id="add-product-price" />
+
+    <input type="radio" name="modal" id="edit-price-tl001" />
+
+    <input type="radio" name="modal" id="edit-price-tl002" />
+
+    <input type="radio" name="modal" id="edit-price-tl003" />
+
 
     <input type="radio" name="modal" id="edit-price-sp001" />
 
@@ -182,5 +223,56 @@
       </div>
     </div>
   </div>
+
+
+  <div class="modal-form edit-price-tl001">
+    <div class="modal-content-price">
+      <h3>Sửa % lợi nhuận — TL001</h3>
+
+      <div class="nd-price">
+        <p>% Lợi nhuận mới</p>
+        <input type="number" placeholder="vd: 25" />
+      </div>
+
+      <div class="modal-actions-price">
+        <label for="none" class="btn btn-delete">Hủy</label>
+        <label for="none" class="btn btn-update">Cập nhật</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-form edit-price-tl002">
+    <div class="modal-content-price">
+      <h3>Sửa % lợi nhuận — TL002</h3>
+
+      <div class="nd-price">
+        <p>% Lợi nhuận mới</p>
+        <input type="number" />
+      </div>
+
+      <div class="modal-actions-price">
+        <label for="none" class="btn btn-delete">Hủy</label>
+        <label for="none" class="btn btn-update">Cập nhật</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-form edit-price-tl003">
+    <div class="modal-content-price">
+      <h3>Sửa % lợi nhuận — TL003</h3>
+
+      <div class="nd-price">
+        <p>% Lợi nhuận mới</p>
+        <input type="number" />
+      </div>
+
+      <div class="modal-actions-price">
+        <label for="none" class="btn btn-delete">Hủy</label>
+        <label for="none" class="btn btn-update">Cập nhật</label>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 </html>
